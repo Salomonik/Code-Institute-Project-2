@@ -4,10 +4,12 @@
 *::before,
 *::after {
 	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
 }
 
 :root {
-	--background-color: #FBFCFA;
+	--background-color: #D6D6D6;
 	--primary-color: #899C73;
 	--secondary-color: #B2B2C8;
 	--accent-color: #AA8DAE;
@@ -16,7 +18,7 @@
 	--font-secondary: 'Roboto', sans-serif;
 
 	--font-size-small: 0.8rem;
-	--font-size-normal: 1rem;
+	--font-size-normal: 1.125rem;
 	--font-size-large: 1.2rem;
 	--font-size-extra-large: 1.5rem;
 
@@ -44,7 +46,6 @@ body {
 	max-width: 1050px;
 	height: 100dvh;
 	background-color: var(--background-color);
-
 	margin-inline: auto;
 	font-family: var(--font-secondary);
 	/* Roboto as the primary font for the body */
@@ -52,7 +53,7 @@ body {
 	font-size: var(--font-size-normal);
 	line-height: var(--line-height-normal);
 	word-spacing: var(--word-spacing-normal);
-	
+
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -122,12 +123,22 @@ a:hover {
 	/* Adds underline on hover for better UX */
 }
 
-/* Navbar */
+img {
+	max-width: 100%;
+	display: block;
+}
 
+/* Navbar */
+header{
+	margin: 0;
+	padding: 0;
+}
 .navbar {
+	
 	display: flex;
 	justify-content: space-between;
 	border: 1px solid black;
+	background-color: white;
 }
 
 #nav-list {
@@ -136,20 +147,75 @@ a:hover {
 	padding-inline: 1rem;
 }
 
+
+
+
 /* Main */
 main {
-	min-width: 100px;
-	width: 80%;
-	height: 80%;
-	display: grid;
+	flex: 1;
+	width: max(65ch, 100% - 4rem);
 	margin-inline: auto;
-	grid-template-rows: 1fr 200px;
+	display: grid;
+	grid-template-rows: 80% 1fr;
+	
 
 }
-.wrapper {
+
+.wrapper-game-window {
 	border: 1px solid black;
 	
+	padding: var(--padding-small);
+	display: flex;
+	flex-direction: column;
 	
-	margin-block: var(--margin-large);
-	padding:var(--padding-normal) ;
 }
+
+
+
+
+/* Main game window */
+.btn-options  {
+	list-style: none;
+	display: flex;
+	justify-content: space-around;
+	padding:0;
+	margin-bottom: -2px;
+	
+}
+.button {
+	font-family: var(--font-secondary);
+	font-size: var(--font-size-large);
+	font-weight: 600;
+	border: 2px solid black;
+	border-radius: 10px 10px 0 0;
+	background-color: var(--primary-color);
+	padding-inline: 4rem;
+	padding-top: .4rem;
+	
+}
+
+
+.game-window {
+	flex: 1;
+	display: flex;
+	margin-top: 0;
+	padding: 1.25rem;
+	border: 2px solid black;
+	border-radius: 1.75rem 1.75rem 1.75rem 1.75rem;
+	background-color: var(--primary-color);
+}
+
+.game-screen {
+	flex: 1;
+	border: 2px solid black;
+	border-radius: 1.75rem 1.75rem 1.75rem 1.75rem;
+	background-color: black;
+}
+
+.wrapper-game-instruction {
+	flex: 1;
+	border: 1px solid black;
+}
+
+
+/* footer */
