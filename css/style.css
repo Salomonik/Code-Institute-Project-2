@@ -108,6 +108,12 @@ img {
 	display: block;
 }
 
+.shadow {
+	box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+
+
 /* Navbar */
 header {
 	margin: 0;
@@ -200,10 +206,11 @@ main {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	border: 2px solid black;
+	border: 3px solid black;
 	border-radius: 1.75rem 1.75rem 1.75rem 1.75rem;
 	background-color: var(--secondary-color);
 }
+
 
 #splashScreen {
 	text-align: center;
@@ -216,7 +223,7 @@ main {
 
 
 /* Game Screen */
-
+/* loading screen */
 #myProgress {
 	width: 90%;
 	background-color: grey;
@@ -229,6 +236,37 @@ main {
 	height: 10px;
 	background-color: var(--accent-color);
 }
+
+/* splash screen/start screen */
+
+.startGameBtn {
+	font-family: var(--font-third);
+	font-size: var(--font-size-extra-large);
+	border: 2px solid black;
+	border-radius: 10px 10px 10px 10px;
+	background-color: var(--primary-color);
+
+	margin-block: auto;
+	position: relative;
+	padding-inline: 4rem;
+	padding-top: .4rem;
+	padding-bottom: .4rem;
+
+	
+}
+
+/* Ingame Buttons */
+
+.ingameButtons {
+	width: 10rem;
+	height: 10rem;
+	padding: 1rem;
+	border-radius: 50%;
+	font-family: var(--font-primary);
+	font-size: var(--font-size-extra-large);
+	
+}
+
 
 
 
