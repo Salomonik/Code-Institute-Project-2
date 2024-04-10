@@ -3,7 +3,7 @@ function game1() {
 	gameScreen.innerHTML = ''; // Czyszczenie zawartości
 	populateHTML()
 	buttonCreator();
-	playerAnimations();
+
 
 }
 
@@ -17,26 +17,23 @@ function buttonCreator() {
 	const gameScreen = document.querySelector('.game-screen');
 
 
-	gameScreen.style.display = 'flex';
-	gameScreen.style.flexDirection = 'row';
-	gameScreen.style.alignItems = 'flex-end';
-	gameScreen.style.justifyContent = 'space-around';
-	gameScreen.style.padding = '3rem';
+
 
 	let gameButtonContainer = document.querySelector('.game-button-container');
 
 	for (let i = 0; i < choices.length; i++) {
 		const choice = choices[i];
-		const choiceKey = Object.keys(choice)[0]; // Pobieranie klucza (nazwy) z obiektu
+		const choiceKey = Object.keys(choice)[0];
 		const button = document.createElement('button');
-		button.textContent = choiceKey; // Ustawianie tekstu przycisku na podstawie klucza
-		button.id = `${choiceKey}`; // Ustawianie id przycisku na podstawie klucza
+		button.textContent = choiceKey;
+		button.id = `${choiceKey}`;
 		button.classList.add('ingameButtons');
 
 		button.addEventListener('click', function () {
-			const playerChoice = this.id; // Pobieranie wyboru gracza z id przycisku
-			const computerSelection = computerChoice(); // Pobieranie wyboru komputera
-			calculateResults(playerChoice, computerSelection); // Wywołanie funkcji obliczającej wyniki
+			const playerChoice = this.id;
+			const computerSelection = computerChoice();
+			const result = calculateResults(playerChoice, computerSelection);
+			animateCharacters(result);
 		});
 
 		gameButtonContainer.appendChild(button); // Dodawanie przycisku do kontenera
@@ -49,17 +46,16 @@ function buttonCreator() {
 function populateHTML() {
 	const gameScreen = document.querySelector('.game-screen');
 
-	gameScreen.innerHTML = 
-`<div class="score"></div>
-<div class="mainGame">
-	
-</div>
-<div class="game-button-container"></div>`
+	gameScreen.innerHTML =
+		`<div class="score">random test</div>
+		<div class="mainGame">
+			<img src="./assets/images/game1/player1/cat-idle.webp" width="400px" height="400px" alt="">
+			<img src="./assets/images/game1/player1/ai-idle.webp" width="400px" height="400px" alt="">
+		</div>
+		<div class="game-button-container"></div>`
 
 }
 
-
- 
 let computerChoice = () => {
 	let randomNum = Math.floor(Math.random() * 3); // Usunięto (0) z Math.random(), jest to zbędne
 	const choiceKeys = Object.keys(choices[randomNum]);
@@ -73,7 +69,7 @@ function calculateResults(playerChoice, computerChoiceResult) {
 
 	if (playerChoice === computerChoiceResult) {
 		console.log(`Remis! Oboje wybraliście ${playerChoice}.`);
-		return `draw`;
+		return ['draw', `${playerChoice}`, `${computerChoiceResult}`]; // Gracz wygrywa
 	}
 
 	const winConditions = {
@@ -84,40 +80,57 @@ function calculateResults(playerChoice, computerChoiceResult) {
 
 	if (computerChoiceResult === winConditions[playerChoice]) {
 		console.log(`Wygrałeś! ${playerChoice} bije ${computerChoiceResult}.`)
-		return 'win'; // Gracz wygrywa
+		return ['win', `${playerChoice}`, `${computerChoiceResult}`]; // Gracz wygrywa
 	} else {
 		console.log(`Przegrałeś! ${computerChoiceResult} bije ${playerChoice}.`)
-		return 'lose'; // Gracz wygrywa
+		return ['lose', `${playerChoice}`, `${computerChoiceResult}`]; // Gracz wygrywa
 	}
 }
 
-const result = calculateResults(playerChoice, computerChoiceResult);
-function animateCharacters(result){
+
+function clearMainGame() {
+	const mainGame = document.querySelector('.mainGame');
+
+	while (mainGame.firstChild) {
+		mainGame.removeChild(mainGame.firstChild);
+	}
+}
+function animateCharacters(result) {
+	clearMainGame();
 
 
 
+	const mainGame = document.querySelector('.mainGame');
+
+	mainGame.style.display = "flex";
+	mainGame.style.flex = '1';
+	mainGame.style.justifyContent = "space-around";
+
+	const image1 = new Image;
+	const image2 = document.createElement('img');
+	image1.src = './assets/images/game1/player1/cat-idle.webp';
+	image2.src = './assets/images/game1/player1/ai-idle.webp';
+	image1.style.width = '400px'
+	image1.style.height = '400px'
+	image2.style.width = '400px'
+	image2.style.height = '400px'
+
+	mainGame.appendChild(image1);
+	mainGame.appendChild(image2);
+
+	if (result[0] === 'win') {
+		image1.src = './assets/images/game1/player1/cat-winner.webp';
+		image2.src = './assets/images/game1/player1/ai-loser.webp';
+	} else if (result[0] === 'lose') {
+		image1.src = './assets/images/game1/player1/cat-loser.webp';
+		image2.src = './assets/images/game1/player1/ai-winner.webp';
+
+
+
+	}
+
+	mainGame.appendChild(image1);
+	mainGame.appendChild(image2);
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function calculatingResults(playerChoice, computerChoice) {
-
-}
