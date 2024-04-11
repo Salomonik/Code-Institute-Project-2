@@ -1,5 +1,6 @@
 function game1() {
 	const gameScreen = document.querySelector('.game-screen');
+	document.querySelector('.modal').style.display = 'none';
 	gameScreen.innerHTML = ''; // Czyszczenie zawartości
 	populateHTML()
 	buttonCreator();
@@ -181,22 +182,16 @@ function updateScore(result) {
 }
 
 
-function checkEndGame(wins, loses) {
+function checkEndGame(wins, lose) {
 
 
 
 	let message = wins >= 1 ? 'U WON' : 'U LOSE';
 
-
-
-	const gameScreen = document.querySelector('.game-screen');
-	const endGameModal = `<div id="endGameModal" class="modal" style="display:block;">
-    <div class="modal-content">
-        <p id="endGameMessage">${message}</p>
-        <button id="resetGameButton">Restart Game</button>
-    </div>
-</div>`
-	gameScreen.innerHTML = endGameModal;
+	let endGameModal = document.querySelector('#endGameModal');
+	endGameModal.style.display = 'block';
+	document.querySelector('#endGameMessage').textContent = message;
+	document.querySelector('#resetGameButton').addEventListener('click', game1)
 
 
 

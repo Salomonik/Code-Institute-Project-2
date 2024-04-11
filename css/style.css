@@ -213,8 +213,8 @@ main {
 	border-radius: 1.75rem 1.75rem 1.75rem 1.75rem;
 	/*background-color: var(--secondary-color);*/
 	background-image: url(../assets/images/background/background2.webp);
-	
-	background-position:bottom;
+
+	background-position: bottom;
 }
 
 
@@ -281,7 +281,7 @@ main {
 
 }
 
-.game-image{
+.game-image {
 	max-width: 300px;
 	max-height: 300px;
 }
@@ -305,7 +305,7 @@ main {
 	font-size: var(--font-size-extra-large);
 	background-color: var(--accent-color);
 	box-shadow: 10px 3px 5px 0px rgba(0, 0, 0, 0.25);
-	
+
 }
 
 .ingameButtons:hover {
@@ -317,23 +317,22 @@ main {
 /* End game screen */
 
 .modal {
-    position: fixed;
-    left: 50;
-    top: 10;
-    width: 20%;
-    height: 20%;
-    background-color: rgba(0,0,0,0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+	position: fixed;
+	z-index: 1;
+	width: 10%;
+	
+	top: 40%;
+	left: 45%;
+
+	background-color: var(--secondary-color);
+	
 }
 
 .modal-content {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
+	background: white;
+	padding: 20px;
+	border-radius: 10px;
+	text-align: center;
 }
 
 
