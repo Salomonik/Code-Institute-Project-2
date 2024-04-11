@@ -206,14 +206,14 @@ main {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	gap: 10px;
+	gap: 5px;
 
-	padding-block: 2rem;
+	padding-block: 1rem;
 	border: 3px solid black;
 	border-radius: 1.75rem 1.75rem 1.75rem 1.75rem;
 	/*background-color: var(--secondary-color);*/
-	background-image: url(../assets/images/background/background1.webp);
-	background-size: cover;
+	background-image: url(../assets/images/background/background2.webp);
+	
 	background-position:bottom;
 }
 
@@ -232,6 +232,7 @@ main {
 /* loading screen */
 #myProgress {
 	width: 90%;
+	margin-inline: auto;
 	background-color: grey;
 	color: black;
 	text-align: center;
@@ -263,19 +264,26 @@ main {
 
 /* Ingame containers */
 /* top - score */
+.score {
+	font-family: var(--font-primary);
+	font-size: 2rem;
+	font-weight: var(--font-weight-bold);
+	margin-inline: auto;
+
+}
+
 
 /* middle - players */
 .mainGame {
 	flex: 1;
-
 	display: flex;
 	justify-content: space-around;
 
-	border-radius: 25%;
-	overflow: hidden;
+}
 
-
-
+.game-image{
+	max-width: 300px;
+	max-height: 300px;
 }
 
 
@@ -289,18 +297,43 @@ main {
 }
 
 .ingameButtons {
-	width: 10rem;
-	height: 10rem;
+	width: 7.5rem;
+	height: 7.5rem;
 	padding: 1rem;
 	border-radius: 50%;
 	font-family: var(--font-primary);
 	font-size: var(--font-size-extra-large);
 	background-color: var(--accent-color);
 	box-shadow: 10px 3px 5px 0px rgba(0, 0, 0, 0.25);
+	
 }
 
 .ingameButtons:hover {
 	font-size: 2rem;
+}
+
+
+
+/* End game screen */
+
+.modal {
+    position: fixed;
+    left: 50;
+    top: 10;
+    width: 20%;
+    height: 20%;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
 }
 
 

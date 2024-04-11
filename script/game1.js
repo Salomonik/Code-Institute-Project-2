@@ -29,6 +29,7 @@ function buttonCreator() {
 			const playerChoice = this.id;
 			const computerSelection = computerChoice();
 			const result = calculateResults(playerChoice, computerSelection);
+			updateScore(result);
 			animateCharacters(result);
 		});
 
@@ -43,10 +44,10 @@ function populateHTML() {
 	const gameScreen = document.querySelector('.game-screen');
 
 	gameScreen.innerHTML =
-		`<div class="score">random test</div>
-		<div class="mainGame">
-			<img src="./assets/images/game1/player1/cat-idle.webp" width="400px" height="400px" alt="">
-			<img src="./assets/images/game1/player1/ai-idle.webp" width="400px" height="400px" alt="">
+		`<div class="score"><span id='p1Score'>0</span>:<span id='p2Score'>0</span></div>
+		<div class="mainGame ">
+			<img class="game-image" src="./assets/images/game1/player1/cat-idle.webp" alt="">
+			<img class="game-image" src="./assets/images/game1/player1/ai-idle.webp" alt="">
 		</div>
 		<div class="game-button-container"></div>`
 
@@ -115,27 +116,23 @@ function animateItems(result, image1, image2) {
 
 function animateCharacters(result) {
 	clearMainGame();
-
-
-
 	const mainGame = document.querySelector('.mainGame');
 
-	mainGame.style.display = "flex";
-	mainGame.style.flex = '1';
-	mainGame.style.justifyContent = "space-around";
 
 
 
 
 
-	const image1 = new Image;
+
+	const image1 = document.createElement('img');
 	const image2 = document.createElement('img');
+	image1.classList.add('game-image');
+	image2.classList.add('game-image');
+
 	image1.src = './assets/images/game1/player1/cat-idle.webp';
 	image2.src = './assets/images/game1/player1/ai-idle.webp';
-	image1.style.width = '400px'
-	image1.style.height = '400px'
-	image2.style.width = '400px'
-	image2.style.height = '400px'
+
+
 
 
 
@@ -157,3 +154,50 @@ function animateCharacters(result) {
 }
 
 
+function updateScore(result) {
+
+	const winDisplay = document.getElementById('p1Score');
+	const loseDisplay = document.getElementById('p2Score');
+	const drawDisplay = document.getElementById('draw-counter');
+
+
+	let winCounter = parseInt(winDisplay.textContent)
+	let loseCounter = parseInt(loseDisplay.textContent)
+
+
+	if (result[0] === 'win') {
+		winCounter++;
+		winDisplay.textContent = winCounter;
+	} else if (result[0] === 'lose') {
+		loseCounter++;
+		loseDisplay.textContent = loseCounter;
+	} else if (result[0] === 'draw') {
+		drawCounter++;
+		drawDisplay.textContent = drawCounter;
+	}
+
+	checkEndGame(winCounter, loseCounter)
+
+}
+
+
+function checkEndGame(wins, loses) {
+
+
+
+	let message = wins >= 1 ? 'U WON' : 'U LOSE';
+
+
+
+	const gameScreen = document.querySelector('.game-screen');
+	const endGameModal = `<div id="endGameModal" class="modal" style="display:block;">
+    <div class="modal-content">
+        <p id="endGameMessage">${message}</p>
+        <button id="resetGameButton">Restart Game</button>
+    </div>
+</div>`
+	gameScreen.innerHTML = endGameModal;
+
+
+
+}
