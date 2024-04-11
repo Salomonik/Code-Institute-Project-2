@@ -14,10 +14,6 @@ const choices = [
 ];
 
 function buttonCreator() {
-	const gameScreen = document.querySelector('.game-screen');
-
-
-
 
 	let gameButtonContainer = document.querySelector('.game-button-container');
 
@@ -95,6 +91,28 @@ function clearMainGame() {
 		mainGame.removeChild(mainGame.firstChild);
 	}
 }
+
+
+function animateItems(result, image1, image2) {
+
+	if (result[1] === 'rock') {
+		image1.src = `./assets/images/game1/player1/cat-${result[1]}.webp`;
+		image2.src = `./assets/images/game1/player1/ai-${result[2]}.webp`;
+	}
+	if (result[1] === 'paper') {
+		image1.src = `./assets/images/game1/player1/cat-${result[1]}.webp`;
+		image2.src = `./assets/images/game1/player1/ai-${result[2]}.webp`;
+	}
+	if (result[1] === 'scissors') {
+		image1.src = `./assets/images/game1/player1/cat-${result[1]}.webp`;
+		image2.src = `./assets/images/game1/player1/ai-${result[2]}.webp`;
+	}
+
+}
+
+
+
+
 function animateCharacters(result) {
 	clearMainGame();
 
@@ -106,6 +124,10 @@ function animateCharacters(result) {
 	mainGame.style.flex = '1';
 	mainGame.style.justifyContent = "space-around";
 
+
+
+
+
 	const image1 = new Image;
 	const image2 = document.createElement('img');
 	image1.src = './assets/images/game1/player1/cat-idle.webp';
@@ -115,22 +137,23 @@ function animateCharacters(result) {
 	image2.style.width = '400px'
 	image2.style.height = '400px'
 
+
+
+
 	mainGame.appendChild(image1);
 	mainGame.appendChild(image2);
 
-	if (result[0] === 'win') {
-		image1.src = './assets/images/game1/player1/cat-winner.webp';
-		image2.src = './assets/images/game1/player1/ai-loser.webp';
-	} else if (result[0] === 'lose') {
-		image1.src = './assets/images/game1/player1/cat-loser.webp';
-		image2.src = './assets/images/game1/player1/ai-winner.webp';
 
+	if (result[0] === 'win' || result[0] === 'lose' || result[0] === 'draw') {
+		animateItems(result, image1, image2);
 
+		setTimeout(() => {
+			image1.src = './assets/images/game1/player1/cat-idle.webp';
+			image2.src = './assets/images/game1/player1/ai-idle.webp';
+		}, 1000)
+	};
 
-	}
-
-	mainGame.appendChild(image1);
-	mainGame.appendChild(image2);
 
 }
+
 

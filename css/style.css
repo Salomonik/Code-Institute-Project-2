@@ -211,7 +211,10 @@ main {
 	padding-block: 2rem;
 	border: 3px solid black;
 	border-radius: 1.75rem 1.75rem 1.75rem 1.75rem;
-	background-color: var(--secondary-color);
+	/*background-color: var(--secondary-color);*/
+	background-image: url(../assets/images/background/background1.webp);
+	background-size: cover;
+	background-position:bottom;
 }
 
 
@@ -297,7 +300,7 @@ main {
 }
 
 .ingameButtons:hover {
-	font-size: 2.5rem;
+	font-size: 2rem;
 }
 
 
