@@ -1,6 +1,5 @@
 function game1() {
 	const gameScreen = document.querySelector('.game-screen');
-	document.querySelector('.modal').style.display = 'none';
 	gameScreen.innerHTML = ''; // Czyszczenie zawartości
 	populateHTML()
 	buttonCreator();
@@ -45,7 +44,14 @@ function populateHTML() {
 	const gameScreen = document.querySelector('.game-screen');
 
 	gameScreen.innerHTML =
-		`<div class="score"><span id='p1Score'>0</span>:<span id='p2Score'>0</span></div>
+		`<div class="score">
+		<p id="playerName">player Name</p>
+		<div><span id='p1Score'>0</span>:<span id='p2Score'>0</span></div>
+		<p>AI</p>
+		</div>
+		
+		
+		
 		<div class="mainGame ">
 			<img class="game-image" src="./assets/images/game1/player1/cat-idle.webp" alt="">
 			<img class="game-image" src="./assets/images/game1/player1/ai-idle.webp" alt="">
@@ -119,12 +125,6 @@ function animateCharacters(result) {
 	clearMainGame();
 	const mainGame = document.querySelector('.mainGame');
 
-
-
-
-
-
-
 	const image1 = document.createElement('img');
 	const image2 = document.createElement('img');
 	image1.classList.add('game-image');
@@ -145,10 +145,20 @@ function animateCharacters(result) {
 	if (result[0] === 'win' || result[0] === 'lose' || result[0] === 'draw') {
 		animateItems(result, image1, image2);
 
-		setTimeout(() => {
-			image1.src = './assets/images/game1/player1/cat-idle.webp';
-			image2.src = './assets/images/game1/player1/ai-idle.webp';
-		}, 1000)
+		if (result[0] === 'win') {
+			setTimeout(() => {
+				image1.src = './assets/images/game1/player1/cat-winner.webp';
+				image2.src = './assets/images/game1/player1/ai-loser.webp';
+			}, 1000)
+		}
+		if (result[0] === 'lose') {
+			setTimeout(() => {
+				image1.src = './assets/images/game1/player1/cat-loser.webp';
+				image2.src = './assets/images/game1/player1/ai-winner.webp';
+			}, 1000)
+		}
+
+
 	};
 
 
@@ -159,40 +169,75 @@ function updateScore(result) {
 
 	const winDisplay = document.getElementById('p1Score');
 	const loseDisplay = document.getElementById('p2Score');
-	const drawDisplay = document.getElementById('draw-counter');
+
 
 
 	let winCounter = parseInt(winDisplay.textContent)
 	let loseCounter = parseInt(loseDisplay.textContent)
 
 
-	if (result[0] === 'win') {
-		winCounter++;
+	(result[0] === 'win') ? (winCounter++, winDisplay.textContent = winCounter) : (loseCounter++, loseDisplay.textContent = loseCounter);
+
+
+
+
+	/*	winCounter++;
 		winDisplay.textContent = winCounter;
 	} else if (result[0] === 'lose') {
 		loseCounter++;
 		loseDisplay.textContent = loseCounter;
 	} else if (result[0] === 'draw') {
 		drawCounter++;
-		drawDisplay.textContent = drawCounter;
-	}
+		drawDisplay.textContent = drawCounter; */
 
 	checkEndGame(winCounter, loseCounter)
 
+
+	const images = document.querySelectorAll('.game-image');
+	if (winCounter === 10) {  // Assuming 10 as an example threshold for game end
+		images.innerHTML = `<img src="./assets/images/game1/player1/cat-winner.webp" alt="">
+		<img src="./assets/images/game1/player1/ai-loser.webp" alt="">`;
+
+	}
+	if (loseCounter === 10) {  // Assuming 10 as an example threshold for game end
+		images.innerHTML = `<img src="./assets/images/game1/player1/cat-loser.webp" alt="">
+		<img src="./assets/images/game1/player1/ai-winner.webp" alt="">`;
+	}
+
+
+}
+
+function checkEndGame(wins, loses) {
+	if (wins === 10 || loses === 10) {  // Assuming 10 as an example threshold for game end
+		displayEndGameModal(wins === 10 ? 'U WON' : 'U LOSE');
+	}
 }
 
 
-function checkEndGame(wins, lose) {
 
 
 
-	let message = wins >= 1 ? 'U WON' : 'U LOSE';
-
-	let endGameModal = document.querySelector('#endGameModal');
+function displayEndGameModal(message) {
+	const endGameModal = document.querySelector('#endGameModal'); // Upewnij się, że masz taki element w HTML.
 	endGameModal.style.display = 'block';
 	document.querySelector('#endGameMessage').textContent = message;
-	document.querySelector('#resetGameButton').addEventListener('click', game1)
+	document.querySelector('#resetGameButton').addEventListener('click', resetGame);
 
+	const buttons = document.querySelector('.game-screen').querySelectorAll('button');
+	buttons.forEach(button => {
+		button.style.display = 'none';
+	});
+}
 
+function resetGame() {
+	// Resetuje grę
+	game1(); // Zakładam, że funkcja game1() resetuje grę
+	const endGameModal = document.querySelector('#endGameModal');
+	endGameModal.style.display = 'none';
 
+	// Przywraca przyciski do widoczności
+	const buttons = document.querySelectorAll('.game-screen button');
+	buttons.forEach(button => {
+		button.style.display = 'block';
+	});
 }

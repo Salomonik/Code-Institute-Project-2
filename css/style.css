@@ -194,7 +194,7 @@ main {
 	flex: 1;
 	display: flex;
 	margin-top: 0;
-	padding: var(--padding-large);
+	padding: var(--padding-small);
 	border: 2px solid black;
 	border-radius: 1.75rem 1.75rem 1.75rem 1.75rem;
 	background-color: var(--primary-color);
@@ -268,8 +268,13 @@ main {
 	font-family: var(--font-primary);
 	font-size: 2rem;
 	font-weight: var(--font-weight-bold);
-	margin-inline: auto;
+	
+	display: flex;
+	justify-content: space-around;
 
+}
+.score > p,div{
+	text-align: center;
 }
 
 
@@ -278,6 +283,7 @@ main {
 	flex: 1;
 	display: flex;
 	justify-content: space-around;
+	align-items:baseline;
 
 }
 
@@ -306,7 +312,10 @@ main {
 	background-color: var(--accent-color);
 	box-shadow: 10px 3px 5px 0px rgba(0, 0, 0, 0.25);
 
+	
+
 }
+
 
 .ingameButtons:hover {
 	font-size: 2rem;
@@ -323,16 +332,23 @@ main {
 	
 	top: 40%;
 	left: 45%;
-
-	background-color: var(--secondary-color);
+	opacity: 0.8;
+	
 	
 }
 
 .modal-content {
-	background: white;
+	background: var(--background-color);
+	
+	
 	padding: 20px;
 	border-radius: 10px;
 	text-align: center;
+}
+
+#resetGameButton{
+	padding: 5px;
+	border-radius: 20px;
 }
 
 
