@@ -16,14 +16,21 @@ const choices = [
 function buttonCreator() {
 
 	let gameButtonContainer = document.querySelector('.game-button-container');
+	let buttonIcons = [
+		'<i class="fa-regular fa-hand-back-fist"></i>',
+		'<i class="fa-regular fa-hand"></i>',
+		'<i class="fa-regular fa-hand-scissors"></i>'
+	]
+
 
 	for (let i = 0; i < choices.length; i++) {
 		const choice = choices[i];
+		const iconChoice = buttonIcons[i];
 		const choiceKey = Object.keys(choice)[0];
 		const button = document.createElement('button');
-		button.textContent = choiceKey;
+		button.innerHTML = iconChoice;
 		button.id = `${choiceKey}`;
-		button.classList.add('ingameButtons');
+		button.classList.add('ingameButtons',);
 
 		button.addEventListener('click', function () {
 			const playerChoice = this.id;
@@ -176,19 +183,19 @@ function updateScore(result) {
 	let loseCounter = parseInt(loseDisplay.textContent)
 
 
-	(result[0] === 'win') ? (winCounter++, winDisplay.textContent = winCounter) : (loseCounter++, loseDisplay.textContent = loseCounter);
-
-
-
-
-	/*	winCounter++;
+	if (result[0] === 'win') {
+		winCounter++;
 		winDisplay.textContent = winCounter;
 	} else if (result[0] === 'lose') {
 		loseCounter++;
 		loseDisplay.textContent = loseCounter;
-	} else if (result[0] === 'draw') {
-		drawCounter++;
-		drawDisplay.textContent = drawCounter; */
+	}
+
+
+
+
+
+	/*	 */
 
 	checkEndGame(winCounter, loseCounter)
 

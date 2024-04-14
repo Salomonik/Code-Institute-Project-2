@@ -50,8 +50,9 @@
 }
 
 body {
+
 	max-width: 1050px;
-	height: 97dvh;
+	height: 100dvh;
 	background-color: var(--background-color);
 	margin-inline: auto;
 	font-family: var(--font-secondary);
@@ -104,7 +105,7 @@ a:hover {
 }
 
 img {
-	max-width: 100%;
+
 	display: block;
 }
 
@@ -128,8 +129,8 @@ header {
 }
 
 #logo * {
-	width: 70px;
-	height: 70px;
+	max-width: 70px;
+	max-height: 70px;
 	border-radius: 50%;
 
 }
@@ -146,13 +147,14 @@ header {
 main {
 
 	flex: 1;
-	width: max(65ch, 100% - 4rem);
+
 	margin-inline: auto;
 	display: grid;
 	grid-template-rows: 80% 1fr;
 
 
 }
+
 
 .wrapper-game-window,
 .wrapper-instruction-window {
@@ -166,6 +168,7 @@ main {
 
 /* Main game window */
 .btn-options {
+
 	list-style: none;
 	display: flex;
 	justify-content: space-around;
@@ -181,7 +184,7 @@ main {
 	border: 2px solid black;
 	border-radius: 10px 10px 0 0;
 	background-color: var(--primary-color);
-	padding-inline: 4rem;
+	padding-inline: 1.5rem;
 	padding-top: .4rem;
 
 	font-family: var(--font-third);
@@ -211,7 +214,7 @@ main {
 	padding-block: 1rem;
 	border: 3px solid black;
 	border-radius: 1.75rem 1.75rem 1.75rem 1.75rem;
-	/*background-color: var(--secondary-color);*/
+
 	background-image: url(../assets/images/background/background2.webp);
 
 	background-position: bottom;
@@ -268,13 +271,16 @@ main {
 	font-family: var(--font-primary);
 	font-size: 2rem;
 	font-weight: var(--font-weight-bold);
-	
+	text-align: center;
+
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
 
 }
-.score > p,div{
+
+.score>* {
 	text-align: center;
+	flex: 1;
 }
 
 
@@ -282,14 +288,27 @@ main {
 .mainGame {
 	flex: 1;
 	display: flex;
-	justify-content: space-around;
-	align-items:baseline;
+	justify-content: space-between;
+	align-items: flex-end;
 
 }
 
 .game-image {
-	max-width: 300px;
-	max-height: 300px;
+	max-width: 35%;
+}
+
+@media (max-width: 40em) {
+	.game-image {
+		max-width: 55%;
+	}
+
+	.mainGame {
+
+
+		justify-content: space-between;
+		align-items: center;
+
+	}
 }
 
 
@@ -303,22 +322,23 @@ main {
 }
 
 .ingameButtons {
-	width: 7.5rem;
-	height: 7.5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 5rem;
+	height: 5rem;
 	padding: 1rem;
 	border-radius: 50%;
 	font-family: var(--font-primary);
-	font-size: var(--font-size-extra-large);
-	background-color: var(--accent-color);
+	font-size: 2rem;
+	color: white;
+	background-color: hsla(10, 90%, 40%, 1);
 	box-shadow: 10px 3px 5px 0px rgba(0, 0, 0, 0.25);
-
-	
-
 }
 
 
 .ingameButtons:hover {
-	font-size: 2rem;
+	font-size: 4rem;
 }
 
 
@@ -329,24 +349,24 @@ main {
 	position: fixed;
 	z-index: 1;
 	width: 10%;
-	
+
 	top: 40%;
 	left: 45%;
 	opacity: 0.8;
-	
-	
+
+
 }
 
 .modal-content {
 	background: var(--background-color);
-	
-	
+
+
 	padding: 20px;
 	border-radius: 10px;
 	text-align: center;
 }
 
-#resetGameButton{
+#resetGameButton {
 	padding: 5px;
 	border-radius: 20px;
 }
@@ -360,3 +380,4 @@ main {
 
 	text-align: center;
 }
+
