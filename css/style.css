@@ -138,13 +138,14 @@ header {
 #nav-list {
 	display: flex;
 	gap: 1rem;
-	padding-inline: var(--padding-normal);
+	padding-inline: var(--padding-small);
 }
 
 
 
 /* Main */
 main {
+	
 	min-width: 100%;
 	flex: 1;
 
@@ -185,7 +186,6 @@ main {
 	border: 2px solid black;
 	border-radius: 10px;
 	background-color: var(--primary-color);
-	padding-inline: 1.5rem;
 	padding-top: .4rem;
 
 	font-family: var(--font-third);
@@ -204,8 +204,9 @@ main {
 	background-color: var(--primary-color);
 }
 
-.game-screen,
-.instruction-screen {
+.game-screen
+ {
+	
 	flex: 1;
 	display: flex;
 	flex-direction: column;
@@ -219,11 +220,27 @@ main {
 	background-image: url(../assets/images/background/background2.webp);
 
 	background-position:center;
+	background-size: cover;
 }
 
+.instruction-screen{
+	flex: 1;
+	display: flex;
+	
+	justify-content: center;
+	gap: 5px;
+
+	padding-block: 1rem;
+	border: 3px solid black;
+	border-radius: 1.75rem 1.75rem 1.75rem 1.75rem;
+
+	background-color: var(--background-color);
+
+}
 
 #splashScreen {
 	text-align: center;
+	
 }
 
 .wrapper-game-instruction {
@@ -349,13 +366,14 @@ main {
 /* End game screen */
 
 .modal {
-	position: fixed;
+	position: relative;
 	z-index: 1;
-	width: 10%;
+	width: 25%;
 
-	top: 40%;
-	left: 45%;
+	top: 50%;
+	left: 50%;
 	opacity: 0.8;
+	
 
 
 }
@@ -382,4 +400,5 @@ main {
 
 
 	text-align: center;
+	align-items: end;
 }

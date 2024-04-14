@@ -52,7 +52,7 @@ function populateHTML() {
 
 	gameScreen.innerHTML =
 		`<div class="score">
-		<p id="playerName">player Name</p>
+		<p id="playerName">Player</p>
 		<div><span id='p1Score'>0</span>:<span id='p2Score'>0</span></div>
 		<p>AI</p>
 		</div>
