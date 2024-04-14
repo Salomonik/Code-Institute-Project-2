@@ -57,10 +57,14 @@ function gameStartScreen(gameId) {
 	gameScreen.style.backgroundColor = '#9BD9C1';
 
 	const startButton = document.createElement('button');
+	const playerName = document.createElement('input');
+	
 	startButton.classList.add('startGameBtn', 'shadow');
 	startButton.textContent = 'Start Game';
 	startButton.addEventListener('click', () => gameSelection(gameId));
 	gameScreen.appendChild(startButton);
+
+	gameScreen.appendChild(playerName);
 
 
 
@@ -70,4 +74,12 @@ function gameStartScreen(gameId) {
 function showInstruction(gameId) {
 	const instructions = document.querySelector('.instruction-screen');
 	instructions.textContent = '';
+}
+
+function selectPlayerName(){
+	let playerNameField = document.querySelector('#p1Score');
+	let playerName = playerNameField.value;
+
+playerName.addEventListener('')
+
 }

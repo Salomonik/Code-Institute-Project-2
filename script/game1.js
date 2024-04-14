@@ -164,6 +164,12 @@ function animateCharacters(result) {
 				image2.src = './assets/images/game1/player1/ai-winner.webp';
 			}, 1000)
 		}
+		if (result[0] === 'draw') {
+			setTimeout(() => {
+				image1.src = './assets/images/game1/player1/cat-idle.webp';
+				image2.src = './assets/images/game1/player1/ai-idle.webp';
+			}, 1000)
+		}
 
 
 	};

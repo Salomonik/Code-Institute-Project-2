@@ -145,7 +145,7 @@ header {
 
 /* Main */
 main {
-
+min-width: 100%;
 	flex: 1;
 
 	margin-inline: auto;
