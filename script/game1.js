@@ -238,7 +238,7 @@ function displayEndGameModal(message) {
 
 	const buttons = document.querySelector('.game-screen').querySelectorAll('button');
 	buttons.forEach(button => {
-		button.style.display = 'none';
+		button.style.opacity = 0;
 	});
 }
 
@@ -251,6 +251,6 @@ function resetGame() {
 	// Przywraca przyciski do widoczności
 	const buttons = document.querySelectorAll('.game-screen button');
 	buttons.forEach(button => {
-		button.style.display = 'block';
+		button.style.display = 'flex';
 	});
 }

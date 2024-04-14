@@ -5,7 +5,7 @@ buttons.forEach(button => {
 		await loadingScreen();
 		gameStartScreen(gameId);
 		showInstruction(gameId);
-		
+
 	});
 });
 
@@ -57,15 +57,14 @@ function gameStartScreen(gameId) {
 	gameScreen.style.backgroundColor = '#9BD9C1';
 
 	const startButton = document.createElement('button');
-	const playerName = document.createElement('input');
-	
+
+
 	startButton.classList.add('startGameBtn', 'shadow');
 	startButton.textContent = 'Start Game';
 	startButton.addEventListener('click', () => gameSelection(gameId));
 	gameScreen.appendChild(startButton);
 
-	gameScreen.appendChild(playerName);
-
+	selectPlayerName();
 
 
 
@@ -76,10 +75,27 @@ function showInstruction(gameId) {
 	instructions.textContent = '';
 }
 
-function selectPlayerName(){
-	let playerNameField = document.querySelector('#p1Score');
-	let playerName = playerNameField.value;
+function selectPlayerName() {
+    const gameScreen = document.querySelector('.game-screen');
 
-playerName.addEventListener('')
+    let playerNameField = document.querySelector('#p1Score');
+    const playerNameInput = document.createElement('input'); // Stworzenie pola input dla nazwy gracza
+
+    playerNameInput.type = 'text'; // Ustawienie typu input na tekstowy
+
+    let playerNameBtn = document.createElement('button');
+    playerNameBtn.textContent = 'Set Name'; // Tekst przycisku
+
+    playerNameBtn.addEventListener('click', () => {
+        const playerName = playerNameInput.value; // Pobranie wartości z pola input
+
+        if (playerName) {
+			playerNameField = '';
+            playerNameField.textContent = playerName; // Ustawienie nazwy gracza w polu wyniku
+        }
+    });
+
+    gameScreen.appendChild(playerNameInput); // Dodanie pola input
+    gameScreen.appendChild(playerNameBtn); // Dodanie przycisku
 
 }
