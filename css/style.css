@@ -145,7 +145,7 @@ header {
 
 /* Main */
 main {
-	
+
 	min-width: 100%;
 	flex: 1;
 
@@ -175,7 +175,7 @@ main {
 	justify-content: space-around;
 	padding: 0;
 	margin-bottom: -2px;
-	
+
 
 }
 
@@ -204,9 +204,8 @@ main {
 	background-color: var(--primary-color);
 }
 
-.game-screen
- {
-	
+.game-screen {
+
 	flex: 1;
 	display: flex;
 	flex-direction: column;
@@ -219,14 +218,14 @@ main {
 
 	background-image: url(../assets/images/background/background2.webp);
 
-	background-position:center;
+	background-position: center;
 	background-size: cover;
 }
 
-.instruction-screen{
+.instruction-screen {
 	flex: 1;
 	display: flex;
-	
+
 	justify-content: center;
 	gap: 5px;
 
@@ -240,7 +239,7 @@ main {
 
 #splashScreen {
 	text-align: center;
-	
+
 }
 
 .wrapper-game-instruction {
@@ -358,7 +357,7 @@ main {
 
 .ingameButtons:hover {
 	font-size: 4rem;
-	
+
 }
 
 
@@ -366,25 +365,23 @@ main {
 /* End game screen */
 
 .modal {
-	position: relative;
+	position: absolute;
 	z-index: 1;
-	width: 25%;
-
+	width: 100%;
 	top: 50%;
-	left: 50%;
+	right: 0;
 	opacity: 0.8;
-	
+
 
 
 }
 
 .modal-content {
 	background: var(--background-color);
-
-
 	padding: 20px;
 	border-radius: 10px;
 	text-align: center;
+
 }
 
 #resetGameButton {
