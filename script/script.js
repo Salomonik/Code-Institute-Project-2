@@ -4,7 +4,7 @@ buttons.forEach(button => {
 		const gameId = button.id; // upewnij się, że każdy przycisk ma ustawione id
 		await loadingScreen();
 		gameStartScreen(gameId);
-		showInstruction(gameId);
+
 
 	});
 });
@@ -70,32 +70,33 @@ function gameStartScreen(gameId) {
 
 }
 
-function showInstruction(gameId) {
-	const instructions = document.querySelector('.instruction-screen');
-	instructions.textContent = '';
-}
+
+
 
 function selectPlayerName() {
-    const gameScreen = document.querySelector('.game-screen');
+	const gameScreen = document.querySelector('.game-screen');
 
-    let playerNameField = document.querySelector('#p1Score');
-    const playerNameInput = document.createElement('input'); // Stworzenie pola input dla nazwy gracza
+	let playerNameField = document.querySelector('#p1Score');
+	const playerNameInput = document.createElement('input'); // Stworzenie pola input dla nazwy gracza
 
-    playerNameInput.type = 'text'; // Ustawienie typu input na tekstowy
+	playerNameInput.type = 'text'; // Ustawienie typu input na tekstowy
 
-    let playerNameBtn = document.createElement('button');
-    playerNameBtn.textContent = 'Set Name'; // Tekst przycisku
+	let playerNameBtn = document.createElement('button');
+	playerNameBtn.textContent = 'Set Name'; // Tekst przycisku
 
-    playerNameBtn.addEventListener('click', () => {
-        const playerName = playerNameInput.value; // Pobranie wartości z pola input
+	playerNameBtn.addEventListener('click', () => {
+		const playerName = playerNameInput.value; // Pobranie wartości z pola input
 
-        if (playerName) {
+		if (playerName) {
 			playerNameField = '';
-            playerNameField.textContent = playerName; // Ustawienie nazwy gracza w polu wyniku
-        }
-    });
+			playerNameField.textContent = playerName; // Ustawienie nazwy gracza w polu wyniku
+		}
+	});
 
-    gameScreen.appendChild(playerNameInput); // Dodanie pola input
-    gameScreen.appendChild(playerNameBtn); // Dodanie przycisku
+	gameScreen.appendChild(playerNameInput); // Dodanie pola input
+	gameScreen.appendChild(playerNameBtn); // Dodanie przycisku
 
 }
+
+
+

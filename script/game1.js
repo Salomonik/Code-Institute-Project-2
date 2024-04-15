@@ -51,7 +51,12 @@ function populateHTML() {
 	const gameScreen = document.querySelector('.game-screen');
 
 	gameScreen.innerHTML =
-		`<div class="score">
+		`
+		<div class="instructionBtn">
+		<div class="instruction"><i class="fa-solid fa-gear "></i></div>
+		<div><i class="fa-regular fa-clipboard"></i></div>
+		</div>
+		<div class="score">
 		<p id="playerName">Player</p>
 		<div><span id='p1Score'>0</span>:<span id='p2Score'>0</span></div>
 		<p>AI</p>
@@ -242,7 +247,7 @@ function displayEndGameModal(message) {
 	} else {
 		modalImage.src = './assets/images/game1/player1/cat-prize.webp';
 	}
-	
+
 
 
 
@@ -271,3 +276,47 @@ function resetGame() {
 		button.style.display = 'flex';
 	});
 }
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+	const gameScreen = document.querySelector('.game-screen');
+
+	// Delegated event handling
+	gameScreen.addEventListener('click', function (event) {
+		if (event.target.closest('.instruction')) {
+			showInstruction();
+		}
+	});
+
+	function showInstruction() {
+		const endGameModal = document.querySelector('#endGameModal');
+
+		if (endGameModal) {
+			endGameModal.style.display = 'block';
+			console.log('Showing instructions');
+			document.querySelector('.modal-content').innerHTML = `<h2>Rock, Paper, Scissors: Game Rules</h2>
+                    <button class="ingameButtons"><i class="fa-regular fa-hand-back-fist"></i></button> Rock beats Scissors.
+                    <button class="ingameButtons"><i class="fa-regular fa-hand"></i></button> Paper beats Rock.
+                    <button class="ingameButtons"><i class="fa-regular fa-hand-scissors"></i></button>Scissors beats Paper. `;
+		} else {
+			console.error("The end game modal was not found.");
+		}
+
+
+
+		// Listen for a click on the modal overlay
+		endGameModal.addEventListener('click', function (event) {
+			if (event.target === this) { // Check if the click is on the modal overlay itself, not its children
+				endGameModal.style.display = 'none';
+				endGameModal.innerHTML = `<div class="modal-content">
+				<img id="modalImage" src="" alt="">
+				<h2 id="endGameMessage"></h2>
+				<button id="resetGameButton"><i class="fa-solid fa-rotate-right"></i></button>`;
+
+
+			}
+		});
+	}
+});
