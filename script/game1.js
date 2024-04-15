@@ -231,10 +231,24 @@ function checkEndGame(wins, loses) {
 
 
 function displayEndGameModal(message) {
+
+
 	const endGameModal = document.querySelector('#endGameModal'); // Upewnij się, że masz taki element w HTML.
 	endGameModal.style.display = 'block';
+	let modalImage = document.querySelector('#modalImage');
+
+	if (message === 'U LOSE') {
+		modalImage.src = './assets/images/game1/player1/ai-prize.webp';
+	} else {
+		modalImage.src = './assets/images/game1/player1/cat-prize.webp';
+	}
+	
+
+
+
 	document.querySelector('#endGameMessage').textContent = message;
 	document.querySelector('#resetGameButton').addEventListener('click', resetGame);
+
 
 	const buttons = document.querySelector('.game-screen').querySelectorAll('button');
 	buttons.forEach(button => {
@@ -247,6 +261,9 @@ function resetGame() {
 	game1(); // Zakładam, że funkcja game1() resetuje grę
 	const endGameModal = document.querySelector('#endGameModal');
 	endGameModal.style.display = 'none';
+
+
+
 
 	// Przywraca przyciski do widoczności
 	const buttons = document.querySelectorAll('.game-screen button');
