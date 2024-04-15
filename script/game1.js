@@ -296,7 +296,9 @@ document.addEventListener('DOMContentLoaded', function () {
 		if (endGameModal) {
 			endGameModal.style.display = 'block';
 			console.log('Showing instructions');
-			document.querySelector('.modal-content').innerHTML = `<h2>Rock, Paper, Scissors: Game Rules</h2>
+			document.querySelector('.modal-content').innerHTML = `
+			<button class="modalCloseBtn" style="justify-self: flex-start"><i class="fa-solid fa-x"></i></button>
+			<h2>Rock, Paper, Scissors: Game Rules</h2>
                     <button class="ingameButtons"><i class="fa-regular fa-hand-back-fist"></i></button> Rock beats Scissors.
                     <button class="ingameButtons"><i class="fa-regular fa-hand"></i></button> Paper beats Rock.
                     <button class="ingameButtons"><i class="fa-regular fa-hand-scissors"></i></button>Scissors beats Paper. `;
@@ -305,10 +307,10 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 
 
-
+const modalCloseBtn = document.querySelector('.modalCloseBtn')
 		// Listen for a click on the modal overlay
-		endGameModal.addEventListener('click', function (event) {
-			if (event.target === this) { // Check if the click is on the modal overlay itself, not its children
+		modalCloseBtn.addEventListener('click', function () {
+			
 				endGameModal.style.display = 'none';
 				endGameModal.innerHTML = `<div class="modal-content">
 				<img id="modalImage" src="" alt="">
@@ -316,7 +318,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				<button id="resetGameButton"><i class="fa-solid fa-rotate-right"></i></button>`;
 
 
-			}
+			
 		});
 	}
 });

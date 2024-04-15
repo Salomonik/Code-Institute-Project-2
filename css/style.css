@@ -304,6 +304,7 @@ main {
 	gap: 10px;
 }
 
+.modalCloseBtn,
 .instructionBtn>div {
 	display: flex;
 	justify-content: center;
@@ -319,7 +320,8 @@ main {
 	box-shadow: 10px 3px 5px 0px rgba(0, 0, 0, 0.25);
 }
 
-.instructionBtn>div:hover{
+.modalCloseBtn,
+.instructionBtn>div:hover {
 	font-size: 1.75rem;
 	cursor: pointer;
 }
@@ -447,13 +449,17 @@ main {
 }
 
 @media screen and (max-width: 40em) {
-	.modal-content{
+	.modal-content {
 		min-width: 50%;
 	}
 }
 
 #modalImage {
 	max-width: 100px;
+}
+
+.modalCloseBtn {
+	align-self: flex-start;
 }
 
 /* footer */
