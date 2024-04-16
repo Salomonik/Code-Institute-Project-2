@@ -54,7 +54,7 @@ function populateHTML() {
 		`
 		<div class="instructionBtn">
 		<div class="instruction"><i class="fa-solid fa-gear "></i></div>
-		<div><i class="fa-regular fa-clipboard"></i></div>
+		<div class="leaderboard"><i class="fa-regular fa-clipboard"></i></div>
 		</div>
 		<div class="score">
 		<p id="playerName">Player</p>
@@ -206,7 +206,7 @@ function updateScore(result) {
 
 
 
-	/*	 */
+
 
 	checkEndGame(winCounter, loseCounter)
 
@@ -290,6 +290,12 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	});
 
+	gameScreen.addEventListener('click', function (event) {
+		if (event.target.closest('.leaderboard')) {
+			showLeaderBoard();
+		}
+	})
+
 	function showInstruction() {
 		const endGameModal = document.querySelector('#endGameModal');
 
@@ -299,26 +305,71 @@ document.addEventListener('DOMContentLoaded', function () {
 			document.querySelector('.modal-content').innerHTML = `
 			<button class="modalCloseBtn" style="justify-self: flex-start"><i class="fa-solid fa-x"></i></button>
 			<h2>Rock, Paper, Scissors: Game Rules</h2>
-                    <button class="ingameButtons"><i class="fa-regular fa-hand-back-fist"></i></button> Rock beats Scissors.
-                    <button class="ingameButtons"><i class="fa-regular fa-hand"></i></button> Paper beats Rock.
-                    <button class="ingameButtons"><i class="fa-regular fa-hand-scissors"></i></button>Scissors beats Paper. `;
+                    <button class="ingameButtons"><i class="fa-regular fa-hand-back-fist"></i></button> <strong>Rock</strong> beats Scissors.
+                    <button class="ingameButtons"><i class="fa-regular fa-hand"></i></button> <strong>Paper</strong> beats Rock.
+                    <button class="ingameButtons"><i class="fa-regular fa-hand-scissors"></i></button><strong>Scissors</strong> beats Paper. `;
+
+
+
 		} else {
 			console.error("The end game modal was not found.");
 		}
 
 
-const modalCloseBtn = document.querySelector('.modalCloseBtn')
+
+
+
+
+		const modalCloseBtn = document.querySelector('.modalCloseBtn')
 		// Listen for a click on the modal overlay
 		modalCloseBtn.addEventListener('click', function () {
-			
-				endGameModal.style.display = 'none';
-				endGameModal.innerHTML = `<div class="modal-content">
+
+			endGameModal.style.display = 'none';
+			endGameModal.innerHTML = `<div class="modal-content">
 				<img id="modalImage" src="" alt="">
 				<h2 id="endGameMessage"></h2>
 				<button id="resetGameButton"><i class="fa-solid fa-rotate-right"></i></button>`;
 
 
-			
+
 		});
 	}
+
+	function showLeaderBoard() {
+		const endGameModal = document.querySelector('#endGameModal');
+		if (endGameModal) {
+			endGameModal.style.display = 'block';
+			console.log('Showing instructions');
+			document.querySelector('.modal-content').innerHTML = `
+			<div id="leaderboard">
+    <h2>Leaderboard</h2>
+    <div id="scoresList"></div>
+    <button onclick="resetLeaderboard()">Resetuj wyniki</button>
+</div>
+			`
+		}
+
+	}
 });
+
+function saveScore(name, score) {
+	let scores = JSON.parse(localStorage.getItem('leaderboardtable')) || [];
+	scores.push({ name: name, score: score });
+	scores.sort((a, b) => b.score - a.score); // Sortuj od najwyższego do najniższego
+	localStorage.setItem('leaderboardtable', JSON.stringify(scores));
+}
+
+function displayLeaderboard() {
+	let scores = JSON.parse(localStorage.getItem('leaderboard')) || [];
+	let leaderboardElement = document.getElementById('leaderboardtable');
+
+	leaderboardElement.innerHTML = ''; // Wyczyść aktualne wyniki
+	scores.forEach((score, index) => {
+		leaderboardElement.innerHTML += `<div>${index + 1}. ${score.name} - ${score.score}</div>`;
+	});
+}
+
+function resetLeaderboard() {
+	localStorage.removeItem('leaderboard');
+	displayLeaderboard(); // Aktualizuj wyświetlane wyniki
+}

@@ -155,7 +155,7 @@ main {
 
 	margin-inline: auto;
 	display: grid;
-	grid-template-rows: 80% 15%;
+	grid-template-rows: 1fr;
 
 
 }
@@ -333,7 +333,7 @@ main {
 	font-size: 2rem;
 	font-weight: var(--font-weight-bold);
 	text-align: center;
-margin-top: 1rem;
+	margin-top: 1rem;
 	display: flex;
 	justify-content: space-between;
 
@@ -355,7 +355,7 @@ margin-top: 1rem;
 }
 
 .game-image {
-	max-width: 35%;
+	max-width: 55%;
 }
 
 @media (max-width: 40em) {
@@ -412,6 +412,7 @@ margin-top: 1rem;
 /* End game screen */
 
 .modal {
+
 	position: fixed;
 	z-index: 1;
 	left: 0;
@@ -423,6 +424,7 @@ margin-top: 1rem;
 	display: flex;
 	align-content: center;
 	justify-content: center;
+
 	/* Centrowanie w poziomie */
 
 
@@ -432,14 +434,14 @@ margin-top: 1rem;
 }
 
 .modal-content {
-
+position: relative;
 	display: flex;
 	flex-direction: column;
-	min-width: 30%;
-	max-width: 30%;
+	min-width: 40%;
+	max-width: 40%;
 	background: var(--primary-color);
 	border: 2px solid black;
-	padding: 20px;
+	padding: 25px;
 	border-radius: 10px;
 	align-items: center;
 	text-align: center;
@@ -450,7 +452,11 @@ margin-top: 1rem;
 
 @media screen and (max-width: 40em) {
 	.modal-content {
-		min-width: 50%;
+		
+		min-width: 80%;
+		max-width: 80%;
+		max-height: 80%;
+		
 	}
 }
 
@@ -459,7 +465,9 @@ margin-top: 1rem;
 }
 
 .modalCloseBtn {
-	align-self: flex-start;
+	position: absolute;
+	right: 2px;
+	top: 2px;
 }
 
 /* footer */
