@@ -70,7 +70,17 @@ function populateHTML() {
 		</div>
 		<div class="game-button-container"></div>`
 
+	updatePlayerName();
+
 }
+
+function updatePlayerName() {
+	const playerName = localStorage.getItem('playerName');
+	if (playerName) {
+		document.getElementById('playerName').textContent = playerName;
+	}
+}
+
 
 let computerChoice = () => {
 	let randomNum = Math.floor(Math.random() * 3); // Usunięto (0) z Math.random(), jest to zbędne

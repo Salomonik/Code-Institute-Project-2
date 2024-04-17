@@ -56,16 +56,15 @@ function gameStartScreen(gameId) {
 	gameScreen.innerHTML = ''; // Czyszczenie zawartości
 	gameScreen.style.backgroundColor = '#9BD9C1';
 
+
+	selectPlayerName();
+
+
 	const startButton = document.createElement('button');
-
-
 	startButton.classList.add('ingameButtons', 'shadow');
 	startButton.innerHTML = '<i class="fa-solid fa-circle-play"></i>';
 	startButton.addEventListener('click', () => gameSelection(gameId));
 	gameScreen.appendChild(startButton);
-
-	selectPlayerName();
-
 
 
 }
@@ -74,28 +73,23 @@ function gameStartScreen(gameId) {
 
 
 function selectPlayerName() {
-	const gameScreen = document.querySelector('.game-screen');
+    const gameScreen = document.querySelector('.game-screen');
+	
+    const playerNameInput = document.createElement('input');
+    playerNameInput.type = 'text';
+	playerNameInput.maxLength = 3;
+    const playerNameBtn = document.createElement('button');
+    playerNameBtn.textContent = 'Set Name';
 
-	let playerNameField = document.querySelector('#p1Score');
-	const playerNameInput = document.createElement('input'); // Stworzenie pola input dla nazwy gracza
+    playerNameBtn.addEventListener('click', () => {
+        const playerName = playerNameInput.value;
+        if (playerName) {
+            localStorage.setItem('playerName', playerName); // Zapisanie nazwy gracza
+        }
+    });
 
-	playerNameInput.type = 'text'; // Ustawienie typu input na tekstowy
-
-	let playerNameBtn = document.createElement('button');
-	playerNameBtn.textContent = 'Set Name'; // Tekst przycisku
-
-	playerNameBtn.addEventListener('click', () => {
-		const playerName = playerNameInput.value; // Pobranie wartości z pola input
-
-		if (playerName) {
-			playerNameField = '';
-			playerNameField.textContent = playerName; // Ustawienie nazwy gracza w polu wyniku
-		}
-	});
-
-	gameScreen.appendChild(playerNameInput); // Dodanie pola input
-	gameScreen.appendChild(playerNameBtn); // Dodanie przycisku
-
+    gameScreen.appendChild(playerNameInput);
+    gameScreen.appendChild(playerNameBtn);
 }
 
 
