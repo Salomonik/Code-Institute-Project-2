@@ -215,6 +215,10 @@ main {
 	justify-content: center;
 	gap: 5px;
 
+
+
+	gap: 5px;
+
 	padding-block: 1rem;
 	border: 3px solid black;
 	border-radius: 1.75rem 1.75rem 1.75rem 1.75rem;
@@ -224,6 +228,33 @@ main {
 	background-position: center;
 	background-size: cover;
 }
+
+
+
+
+.playerNameWrapper {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-self: center;
+	justify-content: center;
+	margin-inline: auto;
+
+	font-family: var(--font-fourth);
+	font-size: larger;
+}
+.playerNameWrapper > :nth-last-child(-n+2){
+	border-radius: 30px;
+	padding: 0.5rem;
+	font-family: var(--font-fourth);
+	margin-top: 5px;
+}
+.startButtonWrapper {
+	display: flex;
+	align-content: center;
+}
+
+
 
 .instruction-screen {
 	flex: 1;

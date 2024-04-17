@@ -53,6 +53,8 @@ function loadingScreen() {
 
 function gameStartScreen(gameId) {
 	const gameScreen = document.querySelector('.game-screen');
+	const startButtonWrapper = document.createElement('div');
+	startButtonWrapper.classList.add('startButtonWrapper');
 	gameScreen.innerHTML = ''; // Czyszczenie zawartości
 	gameScreen.style.backgroundColor = '#9BD9C1';
 
@@ -64,7 +66,8 @@ function gameStartScreen(gameId) {
 	startButton.classList.add('ingameButtons', 'shadow');
 	startButton.innerHTML = '<i class="fa-solid fa-circle-play"></i>';
 	startButton.addEventListener('click', () => gameSelection(gameId));
-	gameScreen.appendChild(startButton);
+	startButtonWrapper.appendChild(startButton);
+	gameScreen.appendChild(startButtonWrapper);
 
 
 }
@@ -73,23 +76,30 @@ function gameStartScreen(gameId) {
 
 
 function selectPlayerName() {
-    const gameScreen = document.querySelector('.game-screen');
-	
-    const playerNameInput = document.createElement('input');
-    playerNameInput.type = 'text';
+	const gameScreen = document.querySelector('.game-screen');
+	const playerNameWrapper = document.createElement('div');
+	playerNameWrapper.classList.add('playerNameWrapper');
+	const playerNameLabel = document.createElement('label');
+	playerNameLabel.textContent = 'Max 3 characters'
+
+	const playerNameInput = document.createElement('input');
+	playerNameInput.type = 'text';
 	playerNameInput.maxLength = 3;
-    const playerNameBtn = document.createElement('button');
-    playerNameBtn.textContent = 'Set Name';
+	const playerNameBtn = document.createElement('button');
+	playerNameBtn.textContent = 'Set Name';
 
-    playerNameBtn.addEventListener('click', () => {
-        const playerName = playerNameInput.value;
-        if (playerName) {
-            localStorage.setItem('playerName', playerName); // Zapisanie nazwy gracza
-        }
-    });
+	playerNameBtn.addEventListener('click', () => {
+		const playerName = playerNameInput.value;
+		if (playerName) {
+			localStorage.setItem('playerName', playerName); // Zapisanie nazwy gracza
+		}
+	});
 
-    gameScreen.appendChild(playerNameInput);
-    gameScreen.appendChild(playerNameBtn);
+	playerNameWrapper.appendChild(playerNameLabel);
+	playerNameWrapper.appendChild(playerNameInput);
+	playerNameWrapper.appendChild(playerNameBtn);
+	gameScreen.appendChild(playerNameWrapper);
+
 }
 
 
