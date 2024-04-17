@@ -242,13 +242,25 @@ main {
 
 	font-family: var(--font-fourth);
 	font-size: larger;
+	text-align: center;
 }
-.playerNameWrapper > :nth-last-child(-n+2){
+
+.playerNameWrapper> :nth-last-child(-n+2) {
 	border-radius: 30px;
 	padding: 0.5rem;
 	font-family: var(--font-fourth);
+	font-size: var(--font-size-normal);
 	margin-top: 5px;
+
+	color: white;
 }
+.playerNameWrapper> :nth-last-child(2){
+	color: black;
+}
+.playerNameWrapper> :nth-last-child(1) {
+	background-color: hsla(10, 90%, 40%, 1);
+}
+
 .startButtonWrapper {
 	display: flex;
 	align-content: center;
