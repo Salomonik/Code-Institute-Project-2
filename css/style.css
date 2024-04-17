@@ -109,7 +109,7 @@ a:hover {
 }
 
 img {
-
+max-width: 100%;
 	display: block;
 }
 
@@ -215,7 +215,7 @@ main {
 	flex-direction: column;
 	justify-content: center;
 	gap: 5px;
-
+	
 	padding-block: 1rem;
 	border: 3px solid black;
 	border-radius: 1.75rem 1.75rem 1.75rem 1.75rem;
@@ -249,6 +249,7 @@ main {
 .wrapper-game-instruction {
 	flex: 1;
 	border: 1px solid black;
+	
 }
 
 
@@ -347,28 +348,22 @@ main {
 
 /* middle - players */
 .mainGame {
+	
 	flex: 1;
 	display: flex;
-	justify-content: space-between;
-	align-items: flex-end;
+	justify-content: center;
+	align-items: center;
 
 }
 
 .game-image {
-	max-width: 55%;
+	max-width: 40%;
+	border: 2px solid black;
 }
 
 @media (max-width: 40em) {
 	.game-image {
-		max-width: 55%;
-	}
-
-	.mainGame {
-
-
-		justify-content: space-between;
-		align-items: center;
-
+		max-width: 50%;
 	}
 }
 
