@@ -215,17 +215,17 @@ function updateScore(result) {
 
 	checkEndGame(winCounter, loseCounter)
 
-	const gameEnded = checkEndGame(winCounter, loseCounter);
-	if (gameEnded) {
-		let leaderboardName = localStorage.getItem('playerName') || 'Anonymous';
-		let date = new Date().toISOString().slice(0, 10); // Simplified date format YYYY-MM-DD
-		console.log(`Adding to leaderboard: ${leaderboardName}, ${result[0]}, ${date}`);
-		addToLeaderBoard({
-			name: leaderboardName,
-			result: result[0] === 'win' ? 'Win' : 'Loss',
-			date: date
-		});
-	}
+	if (checkEndGame(winCounter, loseCounter)) {
+        let leaderboardName = localStorage.getItem('playerName') || 'Anonymous';
+        let date = new Date().toISOString().slice(0, 10); // Format date as YYYY-MM-DD
+
+        // Add to leaderboard only if the game has ended
+        addToLeaderBoard({
+            name: leaderboardName,
+            result: result[0] === 'win' ? 'Win' : 'Loss',
+            date: date
+        });
+    }
 
 	const images = document.querySelectorAll('.game-image');
 	if (winCounter === 10) {  // Assuming 10 as an example threshold for game end
@@ -246,9 +246,13 @@ function updateScore(result) {
 
 
 function checkEndGame(wins, loses) {
-	if (wins === 10 || loses === 10) {  // Assuming 10 as an example threshold for game end
-		displayEndGameModal(wins === 10 ? 'U WON' : 'U LOSE');
-	}
+	const gameEnded = wins >= 10 || loses >= 10; // This checks if the game should end
+    if (gameEnded) {
+        const resultMessage = wins >= 10 ? 'U WON' : 'U LOSE';
+        displayEndGameModal(resultMessage); // Show the end game modal with the appropriate message
+        return true; // Return true to indicate the game has ended
+    }
+    return false; // Return false to indicate the game continues
 }
 
 
@@ -374,17 +378,25 @@ function addToLeaderBoard(entry) {
 }
 
 function updateLeaderboardDisplay() {
-	const scores = JSON.parse(localStorage.getItem('leaderboard')) || [];
-	const tbody = document.querySelector('.scoresList tbody');
-	if (!tbody) {
-		console.error('Leaderboard tbody not found.');
-		return;
-	}
+    const scores = JSON.parse(localStorage.getItem('leaderboard')) || [];
+    const tbody = document.querySelector('.scoresList tbody');
+    if (!tbody) {
+        console.error('Leaderboard tbody not found.');
+        return;
+    }
 
-	const rows = scores.map((score, index) =>
-		`<tr><td>${index + 1}</td><td>${score.name}</td><td>${score.result}</td><td>${score.date}</td></tr>`
-	).join('');
-	tbody.innerHTML = rows;
+    // Building the table rows from scores array
+    let html = scores.map((score, index) => `
+        <tr>
+            <td>${index + 1}</td>
+            <td>${score.name}</td>
+            <td>${score.result}</td>
+            <td>${score.date}</td>
+        </tr>
+    `).join('');
+
+    tbody.innerHTML = html; // Setting innerHTML in one operation
+    console.log("Leaderboard displayed with updated scores.");
 }
 
 function resetLeaderboard() {
