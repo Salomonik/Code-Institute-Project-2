@@ -214,23 +214,23 @@ function updateScore(result) {
 
 
 	checkEndGame(winCounter, loseCounter)
-	
+
 	const gameEnded = checkEndGame(winCounter, loseCounter);
-    if (gameEnded) {
-        let leaderboardName = localStorage.getItem('playerName');
-        let date = new Date();
-        let formattedDate = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
+	if (gameEnded) {
+		let leaderboardName = localStorage.getItem('playerName');
+		let date = new Date();
+		let formattedDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
 
-        // Assuming you want to save this score only if the game has ended
-        addToLeaderBoard({
-            name: leaderboardName,
-            result: result[0] === 'U WIN' ? 'Win' : 'Loss', // or any other logic to determine result string
-            date: formattedDate
-        });
+		// Assuming you want to save this score only if the game has ended
+		addToLeaderBoard({
+			name: leaderboardName,
+			result: result[0] === 'U WIN' ? 'Win' : 'Loss', // or any other logic to determine result string
+			date: formattedDate
+		});
 
-        // Function to update the display of scores
-        displayScores();
-    }
+		// Function to update the display of scores
+		displayScores();
+	}
 
 
 
@@ -306,25 +306,25 @@ function resetGame() {
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    const gameScreen = document.querySelector('.game-screen');
+	const gameScreen = document.querySelector('.game-screen');
 
-    // Setting up event delegation for instruction and leaderboard buttons
-    gameScreen.addEventListener('click', function (event) {
-        if (event.target.closest('.instruction')) {
-            showInstruction();
-        } else if (event.target.closest('.leaderboard')) {
-            showLeaderBoard();
-        }
-    });
+	// Setting up event delegation for instruction and leaderboard buttons
+	gameScreen.addEventListener('click', function (event) {
+		if (event.target.closest('.instruction')) {
+			showInstruction();
+		} else if (event.target.closest('.leaderboard')) {
+			showLeaderBoard();
+		}
+	});
 });
 
 function showInstruction() {
-    const endGameModal = document.querySelector('#endGameModal');
-    if (endGameModal) {
-        endGameModal.style.display = 'block';
-        console.log('Showing instructions');
-        // Simplifying innerHTML assignment to avoid potential listener removal issues
-        document.querySelector('.modal-content').innerHTML = `
+	const endGameModal = document.querySelector('#endGameModal');
+	if (endGameModal) {
+		endGameModal.style.display = 'block';
+		console.log('Showing instructions');
+		// Simplifying innerHTML assignment to avoid potential listener removal issues
+		document.querySelector('.modal-content').innerHTML = `
             <button class="modalCloseBtn" style="justify-self: flex-start"><i class="fa-solid fa-x"></i></button>
             <h2>Game Rules <br> Rock, Paper, Scissors</h2>
             <div>
@@ -333,32 +333,28 @@ function showInstruction() {
                 <button class="ingameButtons"><i class="fa-regular fa-hand-scissors"></i></button> <strong>Scissors</strong> beats Paper.
             </div>`;
 
-        // Ensure listeners are correctly reattached if necessary
-        document.querySelector('.modalCloseBtn').addEventListener('click', function () {
-            endGameModal.style.display = 'none';
-        });
-    } else {
-        console.error("The end game modal was not found.");
-    }
+		// Ensure listeners are correctly reattached if necessary
+		document.querySelector('.modalCloseBtn').addEventListener('click', function () {
+			endGameModal.style.display = 'none';
+		});
+	} else {
+		console.error("The end game modal was not found.");
+	}
 }
 /* Leaderboard functions */
 
 
 function showLeaderBoard() {
-    const endGameModal = document.querySelector('#endGameModal');
-    if (endGameModal) {
-        endGameModal.style.display = 'block';
-        console.log('Displaying leaderboard');
-        const leaderboard = document.querySelector('.modal-content');
-        leaderboard.innerHTML = generateLeaderboardHTML();
+	const modal = getModal('leaderboardModal');
+	if (!modal) return console.error("Leaderboard modal not found.");
 
-        const scores = JSON.parse(localStorage.getItem('leaderboard')) || [];
-        populateScores(scores);
-    }
+	modal.style.display = 'block';
+	modal.querySelector('.modal-content').innerHTML = generateLeaderboardHTML();
+	updateLeaderboardDisplay();
 }
 
 function generateLeaderboardHTML() {
-    return `
+	return `
         <div id="leaderboard">
             <h2>Leaderboard</h2>
             <table class="scoresList">
@@ -372,15 +368,60 @@ function generateLeaderboardHTML() {
                 <tbody></tbody>
             </table>
             <button onclick="resetLeaderboard()">Reset Scores</button>
-        </div>
-    `;
+        </div>`;
+}
+
+function addToLeaderBoard(entry) {
+	const scores = JSON.parse(localStorage.getItem('leaderboard')) || [];
+	scores.push(entry);
+	localStorage.setItem('leaderboard', JSON.stringify(scores));
+	updateLeaderboardDisplay();
+}
+
+function displayScores() {
+	const scores = JSON.parse(localStorage.getItem('leaderboard')) || [];
+	const tbody = document.querySelector('.scoresList tbody');
+	tbody.innerHTML = '';  // Clear previous entries
+	scores.forEach(score => {
+		const row = document.createElement('tr');
+		row.innerHTML = `<td>${score.name}</td><td>${score.result}</td><td>${score.date}</td>`;
+		tbody.appendChild(row);
+	});
 }
 
 function populateScores(scores) {
-    const tbody = document.querySelector('.scoresList tbody');
-    scores.forEach(score => {
-        const row = document.createElement('tr');
-        row.innerHTML = `<td>${score.name}</td><td>${score.results}</td><td>${score.date}</td>`;
-        tbody.appendChild(row);
-    });
+	const tbody = document.querySelector('.scoresList tbody');
+	tbody.innerHTML = '';  // Clear previous entries
+	scores.forEach(score => {
+		tbody.innerHTML += `<tr><td>${score.name}</td><td>${score.results}</td><td>${score.date}</td></tr>`;
+	});
+}
+
+function getModal() {
+	return document.querySelector('#endGameModal');
+}
+
+function resetLeaderboard() {
+	localStorage.removeItem('leaderboard');
+	populateScores([]);
+}
+
+function updateLeaderboardDisplay() {
+	const scores = JSON.parse(localStorage.getItem('leaderboard')) || [];
+	const tbody = document.querySelector('.scoresList tbody');
+	if (!tbody) return console.error('Leaderboard tbody not found.');
+
+	tbody.innerHTML = ''; // Clear previous entries
+	scores.forEach((score, index) => {
+		const row = document.createElement('tr');
+		row.innerHTML = `<td>${index + 1}</td><td>${score.name}</td><td>${score.result}</td><td>${score.date}</td>`;
+		tbody.appendChild(row);
+	});
+
+	function resetLeaderboard() {
+		if (confirm('Are you sure you want to reset the leaderboard?')) {
+			localStorage.removeItem('leaderboard');
+			updateLeaderboardDisplay();
+		}
+	}
 }
