@@ -304,7 +304,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			console.log('Showing instructions');
 			document.querySelector('.modal-content').innerHTML = `
 			<button class="modalCloseBtn" style="justify-self: flex-start"><i class="fa-solid fa-x"></i></button>
-			<h2>Rock, Paper, Scissors: Game Rules</h2>
+			<h2>Game Rules <br> Rock, Paper, Scissors </h2>
                     <button class="ingameButtons"><i class="fa-regular fa-hand-back-fist"></i></button> <strong>Rock</strong> beats Scissors.
                     <button class="ingameButtons"><i class="fa-regular fa-hand"></i></button> <strong>Paper</strong> beats Rock.
                     <button class="ingameButtons"><i class="fa-regular fa-hand-scissors"></i></button><strong>Scissors</strong> beats Paper. `;
@@ -334,6 +334,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		});
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	function showLeaderBoard() {
 		const endGameModal = document.querySelector('#endGameModal');
