@@ -217,24 +217,15 @@ function updateScore(result) {
 
 	const gameEnded = checkEndGame(winCounter, loseCounter);
 	if (gameEnded) {
-		let leaderboardName = localStorage.getItem('playerName');
-		let date = new Date();
-		let formattedDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
-
-		// Assuming you want to save this score only if the game has ended
+		let leaderboardName = localStorage.getItem('playerName') || 'Anonymous';
+		let date = new Date().toISOString().slice(0, 10); // Simplified date format YYYY-MM-DD
+		console.log(`Adding to leaderboard: ${leaderboardName}, ${result[0]}, ${date}`);
 		addToLeaderBoard({
 			name: leaderboardName,
-			result: result[0] === 'U WIN' ? 'Win' : 'Loss', // or any other logic to determine result string
-			date: formattedDate
+			result: result[0] === 'win' ? 'Win' : 'Loss',
+			date: date
 		});
-
-		// Function to update the display of scores
-		displayScores();
 	}
-
-
-
-
 
 	const images = document.querySelectorAll('.game-image');
 	if (winCounter === 10) {  // Assuming 10 as an example threshold for game end
@@ -246,9 +237,13 @@ function updateScore(result) {
 		images.innerHTML = `<img src="./assets/images/game1/player1/cat-loser.webp" alt="">
 		<img src="./assets/images/game1/player1/ai-winner.webp" alt="">`;
 	}
-
-
 }
+
+
+
+
+
+
 
 function checkEndGame(wins, loses) {
 	if (wins === 10 || loses === 10) {  // Assuming 10 as an example threshold for game end
@@ -344,8 +339,6 @@ function showInstruction() {
 }
 
 /* Leaderboard functions */
-
-
 function showLeaderBoard() {
 	const modal = getModal('leaderboardModal');
 	if (!modal) return console.error("Leaderboard modal not found.");
@@ -380,36 +373,7 @@ function addToLeaderBoard(entry) {
 	updateLeaderboardDisplay();
 }
 
-function displayScores() {
-	const scores = JSON.parse(localStorage.getItem('leaderboard')) || [];
-	const tbody = document.querySelector('.scoresList tbody');
-	tbody.innerHTML = '';  // Clear previous entries
-	scores.forEach(score => {
-		const row = document.createElement('tr');
-		row.innerHTML = `<td>${score.name}</td><td>${score.result}</td><td>${score.date}</td>`;
-		tbody.appendChild(row);
-	});
-}
-
-function populateScores(scores) {
-	const tbody = document.querySelector('.scoresList tbody');
-	tbody.innerHTML = '';  // Clear previous entries
-	scores.forEach(score => {
-		tbody.innerHTML += `<tr><td>${score.name}</td><td>${score.results}</td><td>${score.date}</td></tr>`;
-	});
-}
-
-function getModal() {
-	return document.querySelector('#endGameModal');
-}
-
-function resetLeaderboard() {
-	localStorage.removeItem('leaderboard');
-	populateScores([]);
-}
-
 function updateLeaderboardDisplay() {
-	console.log("Updating leaderboard display...");
 	const scores = JSON.parse(localStorage.getItem('leaderboard')) || [];
 	const tbody = document.querySelector('.scoresList tbody');
 	if (!tbody) {
@@ -417,18 +381,19 @@ function updateLeaderboardDisplay() {
 		return;
 	}
 
-	tbody.innerHTML = ''; // Clear previous entries
-	scores.forEach((score, index) => {
-		console.log(`Adding score for ${score.name}`);
-		const row = document.createElement('tr');
-		row.innerHTML = `<td>${index + 1}</td><td>${score.name}</td><td>${score.result}</td><td>${score.date}</td>`;
-		tbody.appendChild(row);
-	});
-};
+	const rows = scores.map((score, index) =>
+		`<tr><td>${index + 1}</td><td>${score.name}</td><td>${score.result}</td><td>${score.date}</td></tr>`
+	).join('');
+	tbody.innerHTML = rows;
+}
 
 function resetLeaderboard() {
 	if (confirm('Are you sure you want to reset the leaderboard?')) {
 		localStorage.removeItem('leaderboard');
 		updateLeaderboardDisplay();
 	}
+}
+
+function getModal(modalId) {
+	return document.querySelector(`#${modalId}`);
 }
