@@ -59,8 +59,8 @@ function gameStartScreen(gameId) {
 	const startButton = document.createElement('button');
 
 
-	startButton.classList.add('startGameBtn', 'shadow');
-	startButton.textContent = 'Start Game';
+	startButton.classList.add('ingameButtons', 'shadow');
+	startButton.innerHTML = '<i class="fa-solid fa-circle-play"></i>';
 	startButton.addEventListener('click', () => gameSelection(gameId));
 	gameScreen.appendChild(startButton);
 
