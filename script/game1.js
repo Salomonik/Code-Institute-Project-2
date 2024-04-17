@@ -359,6 +359,7 @@ function generateLeaderboardHTML() {
             <table class="scoresList">
                 <thead>
                     <tr>
+						<th>No</th>
                         <th>Name</th>
                         <th>Result</th>
                         <th>Date</th>
@@ -366,7 +367,7 @@ function generateLeaderboardHTML() {
                 </thead>
                 <tbody></tbody>
             </table>
-            <button onclick="resetLeaderboard()">Reset Scores</button>
+            <button id="leaderboardBtn" onclick="resetLeaderboard()">Reset Scores</button>
         </div>`;
 }
 
