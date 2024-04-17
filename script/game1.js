@@ -213,12 +213,27 @@ function updateScore(result) {
 	}
 
 
-
-
-
-
-
 	checkEndGame(winCounter, loseCounter)
+	
+	const gameEnded = checkEndGame(winCounter, loseCounter);
+    if (gameEnded) {
+        let leaderboardName = localStorage.getItem('playerName');
+        let date = new Date();
+        let formattedDate = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
+
+        // Assuming you want to save this score only if the game has ended
+        addToLeaderBoard({
+            name: leaderboardName,
+            result: result[0] === 'U WIN' ? 'Win' : 'Loss', // or any other logic to determine result string
+            date: formattedDate
+        });
+
+        // Function to update the display of scores
+        displayScores();
+    }
+
+
+
 
 
 	const images = document.querySelectorAll('.game-image');
@@ -291,109 +306,81 @@ function resetGame() {
 
 
 document.addEventListener('DOMContentLoaded', function () {
-	const gameScreen = document.querySelector('.game-screen');
+    const gameScreen = document.querySelector('.game-screen');
 
-	// Delegated event handling
-	gameScreen.addEventListener('click', function (event) {
-		if (event.target.closest('.instruction')) {
-			showInstruction();
-		}
-	});
-
-	gameScreen.addEventListener('click', function (event) {
-		if (event.target.closest('.leaderboard')) {
-			showLeaderBoard();
-		}
-	})
-
-	function showInstruction() {
-		const endGameModal = document.querySelector('#endGameModal');
-
-		if (endGameModal) {
-			endGameModal.style.display = 'block';
-			console.log('Showing instructions');
-			document.querySelector('.modal-content').innerHTML = `
-			<button class="modalCloseBtn" style="justify-self: flex-start"><i class="fa-solid fa-x"></i></button>
-			<h2>Game Rules <br> Rock, Paper, Scissors </h2>
-                    <button class="ingameButtons"><i class="fa-regular fa-hand-back-fist"></i></button> <strong>Rock</strong> beats Scissors.
-                    <button class="ingameButtons"><i class="fa-regular fa-hand"></i></button> <strong>Paper</strong> beats Rock.
-                    <button class="ingameButtons"><i class="fa-regular fa-hand-scissors"></i></button><strong>Scissors</strong> beats Paper. `;
-
-
-
-		} else {
-			console.error("The end game modal was not found.");
-		}
-
-
-
-
-
-
-		const modalCloseBtn = document.querySelector('.modalCloseBtn')
-		// Listen for a click on the modal overlay
-		modalCloseBtn.addEventListener('click', function () {
-
-			endGameModal.style.display = 'none';
-			endGameModal.innerHTML = `<div class="modal-content">
-				<img id="modalImage" src="" alt="">
-				<h2 id="endGameMessage"></h2>
-				<button id="resetGameButton"><i class="fa-solid fa-rotate-right"></i></button>`;
-
-
-
-		});
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	function showLeaderBoard() {
-		const endGameModal = document.querySelector('#endGameModal');
-		if (endGameModal) {
-			endGameModal.style.display = 'block';
-			console.log('Showing instructions');
-			document.querySelector('.modal-content').innerHTML = `
-			<div id="leaderboard">
-    <h2>Leaderboard</h2>
-    <div id="scoresList"></div>
-    <button onclick="resetLeaderboard()">Resetuj wyniki</button>
-</div>
-			`
-		}
-
-	}
+    // Setting up event delegation for instruction and leaderboard buttons
+    gameScreen.addEventListener('click', function (event) {
+        if (event.target.closest('.instruction')) {
+            showInstruction();
+        } else if (event.target.closest('.leaderboard')) {
+            showLeaderBoard();
+        }
+    });
 });
 
-function saveScore(name, score) {
-	let scores = JSON.parse(localStorage.getItem('leaderboardtable')) || [];
-	scores.push({ name: name, score: score });
-	scores.sort((a, b) => b.score - a.score); // Sortuj od najwyższego do najniższego
-	localStorage.setItem('leaderboardtable', JSON.stringify(scores));
+function showInstruction() {
+    const endGameModal = document.querySelector('#endGameModal');
+    if (endGameModal) {
+        endGameModal.style.display = 'block';
+        console.log('Showing instructions');
+        // Simplifying innerHTML assignment to avoid potential listener removal issues
+        document.querySelector('.modal-content').innerHTML = `
+            <button class="modalCloseBtn" style="justify-self: flex-start"><i class="fa-solid fa-x"></i></button>
+            <h2>Game Rules <br> Rock, Paper, Scissors</h2>
+            <div>
+                <button class="ingameButtons"><i class="fa-regular fa-hand-back-fist"></i></button> <strong>Rock</strong> beats Scissors.
+                <button class="ingameButtons"><i class="fa-regular fa-hand"></i></button> <strong>Paper</strong> beats Rock.
+                <button class="ingameButtons"><i class="fa-regular fa-hand-scissors"></i></button> <strong>Scissors</strong> beats Paper.
+            </div>`;
+
+        // Ensure listeners are correctly reattached if necessary
+        document.querySelector('.modalCloseBtn').addEventListener('click', function () {
+            endGameModal.style.display = 'none';
+        });
+    } else {
+        console.error("The end game modal was not found.");
+    }
+}
+/* Leaderboard functions */
+
+
+function showLeaderBoard() {
+    const endGameModal = document.querySelector('#endGameModal');
+    if (endGameModal) {
+        endGameModal.style.display = 'block';
+        console.log('Displaying leaderboard');
+        const leaderboard = document.querySelector('.modal-content');
+        leaderboard.innerHTML = generateLeaderboardHTML();
+
+        const scores = JSON.parse(localStorage.getItem('leaderboard')) || [];
+        populateScores(scores);
+    }
 }
 
-function displayLeaderboard() {
-	let scores = JSON.parse(localStorage.getItem('leaderboard')) || [];
-	let leaderboardElement = document.getElementById('leaderboardtable');
-
-	leaderboardElement.innerHTML = ''; // Wyczyść aktualne wyniki
-	scores.forEach((score, index) => {
-		leaderboardElement.innerHTML += `<div>${index + 1}. ${score.name} - ${score.score}</div>`;
-	});
+function generateLeaderboardHTML() {
+    return `
+        <div id="leaderboard">
+            <h2>Leaderboard</h2>
+            <table class="scoresList">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Result</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <button onclick="resetLeaderboard()">Reset Scores</button>
+        </div>
+    `;
 }
 
-function resetLeaderboard() {
-	localStorage.removeItem('leaderboard');
-	displayLeaderboard(); // Aktualizuj wyświetlane wyniki
+function populateScores(scores) {
+    const tbody = document.querySelector('.scoresList tbody');
+    scores.forEach(score => {
+        const row = document.createElement('tr');
+        row.innerHTML = `<td>${score.name}</td><td>${score.results}</td><td>${score.date}</td>`;
+        tbody.appendChild(row);
+    });
 }

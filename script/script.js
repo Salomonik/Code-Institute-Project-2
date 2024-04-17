@@ -35,6 +35,20 @@ function loadingScreen() {
 		screen.innerHTML = `
 			<div id="myProgress">LOADING...
 				<div id="myBar"></div>
+				<div class="hidden-image">
+				<img src="./assets/images/game1/player1/ai-idle.webp" alt="">
+					<img src="./assets/images/game1/player1/ai-loser.webp" alt="">
+					<img src="./assets/images/game1/player1/ai-scissors.webp" alt="">
+					<img src="./assets/images/game1/player1/ai-rock.webp" alt="">
+					<img src="./assets/images/game1/player1/ai-paper.webp" alt="">
+					<img src="./assets/images/game1/player1/ai-winner.webp" alt="">
+					<img src="./assets/images/game1/player1/cat-idle.webp" alt="">
+					<img src="./assets/images/game1/player1/cat-loser.webp" alt="">
+					<img src="./assets/images/game1/player1/cat-scissors.webp" alt="">
+					<img src="./assets/images/game1/player1/cat-rock.webp" alt="">
+					<img src="./assets/images/game1/player1/cat-paper.webp" alt="">
+					<img src="./assets/images/game1/player1/cat-winner.webp" alt="">
+				</div>
 			</div>`;
 
 		let width = 1;
@@ -83,8 +97,12 @@ function selectPlayerName() {
 	playerNameLabel.textContent = 'Max 3 characters'
 
 	const playerNameInput = document.createElement('input');
+	playerNameInput.value = localStorage.getItem('playerName') || '';
 	playerNameInput.type = 'text';
 	playerNameInput.maxLength = 3;
+	playerNameInput.addEventListener('focus', function () {
+		this.select(); // Automatycznie zaznacza cały tekst
+	});
 	const playerNameBtn = document.createElement('button');
 	playerNameBtn.textContent = 'Set Name';
 

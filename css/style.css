@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Silkscreen:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 
 
@@ -14,8 +13,8 @@
 
 :root {
 	--background-color: #F3F9F9;
-	--primary-color: #51ADB0;
-	--secondary-color: #94CFD1;
+	--primary-color: hsla(10, 90%, 40%, 1);
+	--secondary-color: #e5e9cc;
 	--accent-color: #7CC8CA;
 
 	--font-primary: 'Fjalla One', sans-serif;
@@ -184,15 +183,25 @@ main {
 
 .button {
 
-	font-size: var(--font-size-extra-large);
-
-	border: 2px solid black;
-	border-radius: 10px;
-	background-color: var(--primary-color);
-	padding-top: .4rem;
-
-	font-family: var(--font-third);
-
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+	width: 5rem;
+	height: 1rem;
+	padding-block: 1.5rem;
+	padding: inline 3rem;
+	
+	border-radius: 20px 20px 0 0;
+	font-family: var(--font-fourth);
+	font-size: 1rem;
+	color: white;
+	background-color: hsla(10, 90%, 40%, 1);
+	
+}
+.button:hover{
+	font-size: 1.30rem;
+	cursor: pointer;
 }
 
 
@@ -245,6 +254,7 @@ main {
 	text-align: center;
 }
 
+#leaderboardBtn,
 .playerNameWrapper> :nth-last-child(-n+2) {
 	border-radius: 30px;
 	padding: 0.5rem;
@@ -254,12 +264,23 @@ main {
 
 	color: white;
 }
-.playerNameWrapper> :nth-last-child(2){
+
+.playerNameWrapper> :nth-last-child(2) {
 	color: black;
 }
+#leaderboardBtn,
 .playerNameWrapper> :nth-last-child(1) {
 	background-color: hsla(10, 90%, 40%, 1);
 }
+#leaderboardBtn:active,
+.playerNameWrapper> :nth-last-child(1):active {
+	transform: translateY(1px);
+}
+#leaderboardBtn:hover,
+.playerNameWrapper> :nth-last-child(1):hover {
+	cursor: pointer;
+}
+
 
 .startButtonWrapper {
 	display: flex;
@@ -285,6 +306,10 @@ main {
 
 #splashScreen {
 	text-align: center;
+	color: black;
+	
+	position: relative;
+	bottom: 100px;
 
 }
 
@@ -298,17 +323,27 @@ main {
 /* Game Screen */
 /* loading screen */
 #myProgress {
+	font-family: var(--font-fourth);
+	color: white;
+	text-align: center;
+
 	width: 90%;
 	margin-inline: auto;
-	background-color: grey;
-	color: black;
-	text-align: center;
+	background-color: var(--primary-color);
+	border-radius: 20px;
 }
 
 #myBar {
 	width: 1%;
 	height: 10px;
-	background-color: var(--accent-color);
+	
+	background-color: white;
+	border-radius: 0 0 20px 20px;
+	
+}
+
+.hidden-image{
+	display: none;
 }
 
 /* splash screen/start screen */
@@ -380,12 +415,17 @@ main {
 	display: flex;
 	justify-content: space-between;
 
+	background-color: 	hsla(180, 33%, 96%, 0.6);
+	
+	position: relative;
+	top: 15px;
 }
 
 .score>* {
 	text-align: center;
 	flex: 1;
 }
+
 
 
 /* middle - players */
@@ -400,7 +440,6 @@ main {
 
 .game-image {
 	max-width: 40%;
-	border: 2px solid black;
 }
 
 @media (max-width: 40em) {
@@ -477,13 +516,14 @@ main {
 	flex-direction: column;
 	min-width: 60%;
 	max-width: 60%;
-	background: var(--primary-color);
+	background: var(--secondary-color);
 	border: 2px solid black;
 	padding: 1rem;
 	border-radius: 10px;
 	align-items: center;
 	text-align: center;
 	margin-inline: auto;
+	
 
 
 }
@@ -514,4 +554,27 @@ main {
 
 	text-align: center;
 	align-items: end;
+}
+
+table {
+	width: 100%;           /* Makes the table use all available horizontal space */
+    border-collapse: collapse; /* Collapses borders between table cells */
+    table-layout: fixed;   /* Ensures each column has a fixed width */
+}
+
+
+
+
+
+th, td {
+    width: 25%;            /* Divide width equally if you have four columns, adjust accordingly */
+    padding: 8px;          /* Adds space inside the cell around content */
+    text-align: left;      /* Aligns text to the left; can be changed to center or right as needed */
+    border: 1px solid black; /* Adds a light grey border around each cell */
+}
+@media screen and (max-width: 40em) {
+    th, td {
+        padding: 4px;      /* Smaller padding for smaller screens */
+        font-size: 14px;   /* Smaller font size if necessary */
+    }
 }
