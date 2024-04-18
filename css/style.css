@@ -639,3 +639,8 @@ form > * {
 background-color: hsla(10, 90%, 40%, 1);
 	color: white;
 }
+
+.error-page {
+	display: grid;
+	justify-content: center;
+}
