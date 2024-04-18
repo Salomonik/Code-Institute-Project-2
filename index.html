@@ -11,7 +11,7 @@
 <body>
 
 	<header>
-		<nav class="navbar">
+		<nav class="navbar" aria-label="Main navigation">
 			<div id="logo">
 				<a href="./index.html"><img src="./assets/images/logo/GameCentralLogo.webp" alt="game central logo"></a>
 			</div>
@@ -26,13 +26,13 @@
 			<div class="btn-options">
 
 
-				<button class="button game-container shadow" id="game1">Game 1</button>
-				<button class="button game-container shadow" id="game2">Game 2</button>
-				<button class="button game-container shadow" id="game3">Game 3</button>
+				<button class="button game-container shadow" id="game1" aria-label="Start Game 1">Game 1</button>
+				<button class="button game-container shadow" id="game2" aria-label="Start Game 2">Game 2</button>
+				<button class="button game-container shadow" id="game3" aria-label="Start Game 3">Game 3</button>
 
 			</div>
 			<div class="game-window shadow">
-				<div class="game-screen shadow">
+				<div class="game-screen shadow" aria-live="polite">
 					<h2 id="splashScreen">Select Your Game!!!</h2>
 
 
@@ -51,21 +51,23 @@
 
 
 
-		<div id="endGameModal" class="modal" style="display:none;">
-			<div class="modal-content shadow">
-				<img id="modalImage" src="" alt="">
-				<h2 id="endGameMessage"></h2>
-				<button id="resetGameButton"><i class="fa-solid fa-rotate-right"></i></button>
-			</div>
+<section>
+	<div id="endGameModal" class="modal" style="display:none;"role="dialog" aria-labelledby="endGameMessage" aria-modal="true" >
+		<div class="modal-content shadow">
+			<img id="modalImage" src="" alt="">
+			<h2 id="endGameMessage"></h2>
+			<button id="resetGameButton"><i class="fa-solid fa-rotate-right"></i></button>
 		</div>
-		<div id="instructionModal" class="modal" style="display:none;">
-			<div class="modal-content shadow">
+	</div>
+	<div id="instructionModal" class="modal" style="display:none;">
+		<div class="modal-content shadow">
 
-			</div>
 		</div>
-		<div id="leaderboardModal" class="modal" style="display:none;">
-			<div class="modal-content shadow"></div>
-		</div>
+	</div>
+	<div id="leaderboardModal" class="modal" style="display:none;">
+		<div class="modal-content shadow"></div>
+	</div>
+</section>
 
 	</main>
 	<footer class="wrapper">
