@@ -1,92 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="./css/style.css">
-	<title>Game Central</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Game Central</title>
 </head>
-
 <body>
+    <!-- Header section containing navigation bar -->
+    <header>
+        <nav class="navbar" aria-label="Main navigation">
+            <!-- Logo part of the navigation bar -->
+            <div id="logo">
+                <a href="./index.html" class="active">
+                    <img src="./assets/images/logo/GameCentralLogo.webp" alt="game central logo">
+                </a>
+            </div>
+            <!-- Navigation links for different pages -->
+            <div id="nav-list">
+                <a href="./about.html">About</a>
+                <a href="./contact.html">Contact</a>
+            </div>
+        </nav>
+    </header>
 
-	<header>
-		<nav class="navbar" aria-label="Main navigation">
-			<div id="logo">
-				<a href="./index.html" class="active"><img src="./assets/images/logo/GameCentralLogo.webp" alt="game central logo"></a>
-			</div>
-			<div id="nav-list">
-				<a href="./about.html">About</a>
-				<a href="./contact.html">Contact</a>
-			</div>
-		</nav>
-	</header>
-	<main>
-		<div class="wrapper-game-window">
-			<div class="btn-options">
+    <!-- Main content area where the game interfaces will be displayed -->
+    <main>
+        <!-- Wrapper for the game window and game selection buttons -->
+        <div class="wrapper-game-window">
+            <!-- Game selection buttons -->
+            <div class="btn-options">
+                <button class="button game-container shadow" id="game1" aria-label="Start Game 1">Game 1</button>
+                <button class="button game-container shadow" id="game2" aria-label="Start Game 2" disabled>Game 2</button>
+                <button class="button game-container shadow" id="game3" aria-label="Start Game 3" disabled>Game 3</button>
+            </div>
+            <!-- Game display window -->
+            <div class="game-window shadow">
+                <div class="game-screen shadow" aria-live="polite">
+                    <h2 id="splashScreen">Select Your Game!!!</h2>
+                </div>
+            </div>
+        </div>
 
+        <!-- Modals for various displays such as end game, instructions, and leaderboard -->
+        <section>
+            <!-- End game modal dialogue -->
+            <div id="endGameModal" class="modal" style="display:none;" role="dialog" aria-labelledby="endGameMessage" aria-modal="true">
+                <div class="modal-content shadow">
+                    <img id="modalImage" src="" alt="">
+                    <h2 id="endGameMessage"></h2>
+                    <button id="resetGameButton"><i class="fa-solid fa-rotate-right"></i></button>
+                </div>
+            </div>
+            <!-- Instruction modal -->
+            <div id="instructionModal" class="modal" style="display:none;">
+                <div class="modal-content shadow">
+                    <!-- Content for instructions will be dynamically inserted here -->
+                </div>
+            </div>
+            <!-- Leaderboard modal -->
+            <div id="leaderboardModal" class="modal" style="display:none;">
+                <div class="modal-content shadow">
+                    <!-- Content for leaderboard will be dynamically inserted here -->
+                </div>
+            </div>
+        </section>
+    </main>
 
-				<button class="button game-container shadow" id="game1" aria-label="Start Game 1">Game 1</button>
-				<button class="button game-container shadow" id="game2" aria-label="Start Game 2" disabled>Game 2</button>
-				<button class="button game-container shadow" id="game3" aria-label="Start Game 3" disabled>Game 3</button>
+    <!-- Footer section of the page -->
+    <footer class="wrapper">
+        <p>Copyright Jakub Parafian 2024</p>
+    </footer>
 
-			</div>
-			<div class="game-window shadow">
-				<div class="game-screen shadow" aria-live="polite">
-					<h2 id="splashScreen">Select Your Game!!!</h2>
-
-
-
-
-
-
-
-
-
-
-
-				</div>
-			</div>
-		</div>
-
-
-
-<section>
-	<div id="endGameModal" class="modal" style="display:none;"role="dialog" aria-labelledby="endGameMessage" aria-modal="true" >
-		<div class="modal-content shadow">
-			<img id="modalImage" src="" alt="">
-			<h2 id="endGameMessage"></h2>
-			<button id="resetGameButton"><i class="fa-solid fa-rotate-right"></i></button>
-		</div>
-	</div>
-	<div id="instructionModal" class="modal" style="display:none;">
-		<div class="modal-content shadow">
-
-		</div>
-	</div>
-	<div id="leaderboardModal" class="modal" style="display:none;">
-		<div class="modal-content shadow"></div>
-	</div>
-</section>
-
-	</main>
-	<footer class="wrapper">
-		<p>Copyright Jakub Parafian 2024</p>
-	</footer>
-	<!-- font awesome icons-->
-	<script src="https://kit.fontawesome.com/ba182bdcb1.js" crossorigin="anonymous"></script>
-
-	<script src="./script/script.js"></script>
-	<script src="./script/game1.js"></script>
-	<script src="./script/game2.js"></script>
-	<script src="./script/game3.js"></script>
-
-
-
-
-
-
-
+    <!-- External scripts including FontAwesome and custom scripts -->
+    <script src="https://kit.fontawesome.com/ba182bdcb1.js" crossorigin="anonymous"></script>
+    <script src="./script/script.js"></script>
+    <script src="./script/game1.js"></script>
+    <script src="./script/game2.js"></script>
+    <script src="./script/game3.js"></script>
 </body>
-
 </html>
