@@ -143,6 +143,10 @@ header {
 	padding-inline: var(--padding-small);
 }
 
+.active {
+	border-bottom: 2px solid black;
+}
+
 
 
 /* Main */
@@ -223,17 +227,25 @@ main {
 	flex-direction: column;
 	justify-content: center;
 	gap: 5px;
-
-
-
-	gap: 5px;
-
 	padding-block: 1rem;
 	border: 3px solid black;
 	border-radius: 1.75rem 1.75rem 1.75rem 1.75rem;
-
 	background-image: url(../assets/images/background/main-background.webp);
+	background-position: center;
+	background-size: cover;
+}
 
+.game-screen-about{
+	position: relative;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 5px;
+	padding-block: 1rem;
+	border: 3px solid black;
+	border-radius: 1.75rem 1.75rem 1.75rem 1.75rem;
+	background-color: var(--accent-color);
 	background-position: center;
 	background-size: cover;
 }
