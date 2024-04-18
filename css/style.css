@@ -154,8 +154,9 @@ main {
 	grid-template-rows: 1fr;
 }
 
-* Styling for game and instruction window wrappers,
-setting up flexible column layouts */ .wrapper-game-window,
+/* Styling for game and instruction window wrappers,
+setting up flexible column layouts */
+.wrapper-game-window,
 .wrapper-instruction-window {
 	padding: var(--padding-small);
 	display: flex;
