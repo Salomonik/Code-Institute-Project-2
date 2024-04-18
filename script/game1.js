@@ -359,7 +359,7 @@ function generateLeaderboardHTML() {
 function addToLeaderBoard(entry) {
 	const scores = JSON.parse(localStorage.getItem('leaderboard')) || [];
 	scores.push(entry);
-	scores.splice(10);
+	scores.splice(0,1);
 	localStorage.setItem('leaderboard', JSON.stringify(scores));
 	updateLeaderboardDisplay();
 }
