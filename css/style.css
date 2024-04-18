@@ -236,6 +236,7 @@ main {
 }
 
 .game-screen-about{
+
 	position: relative;
 	flex: 1;
 	display: flex;
@@ -243,6 +244,7 @@ main {
 	justify-content: center;
 	gap: 5px;
 	padding-block: 1rem;
+	padding-inline: .5rem;
 	border: 3px solid black;
 	border-radius: 1.75rem 1.75rem 1.75rem 1.75rem;
 	background-color: var(--accent-color);
