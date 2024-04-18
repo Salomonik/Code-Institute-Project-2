@@ -519,10 +519,6 @@ main {
 
 	/* Centrowanie w poziomie */
 
-
-
-
-
 }
 
 .modal-content {
@@ -539,18 +535,13 @@ main {
 	align-items: center;
 	text-align: center;
 	margin-inline: auto;
-
-
-
 }
 
 @media screen and (max-width: 40em) {
 	.modal-content {
-
 		min-width: 95%;
 		max-width: 95%;
 		max-height: 100%;
-
 	}
 }
 
@@ -578,10 +569,6 @@ table {
 	table-layout: fixed;
 	/* Ensures each column has a fixed width */
 }
-
-
-
-
 
 th,
 td {
@@ -627,11 +614,6 @@ form > * {
 	font-size: var(--font-size-normal);
 	margin-top: 5px;
 	color: black;
-
-}
-
-#form-textarea {
-	
 
 }
 
