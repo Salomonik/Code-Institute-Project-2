@@ -1,18 +1,22 @@
+// Adds event listeners to buttons for selecting games.
 let buttons = document.querySelectorAll('.game-container');
 buttons.forEach(button => {
 	button.addEventListener('click', async () => {
-		const gameId = button.id; // upewnij się, że każdy przycisk ma ustawione id
-		await loadingScreen();
-		gameStartScreen(gameId);
+		const gameId = button.id; // Retrieves game ID from button.
+		await loadingScreen(); // Displays loading screen before game starts.
+		gameStartScreen(gameId); // Initiates game start screen setup.
+
+
 	});
 });
 
+// Loads game based on gameId and updates the display accordingly.
 function gameSelection(gameId) {
 	const gameScreen = document.querySelector('.game-screen');
-	gameScreen.innerHTML = ''; // Czyszczenie zawartości
+	gameScreen.innerHTML = ''; // Clears existing content.
 
 	switch (gameId) {
-		case 'game1': // Użycie stringów jako identyfikatorów
+		case 'game1':
 			game1();
 			break;
 		case 'game2':
@@ -25,6 +29,7 @@ function gameSelection(gameId) {
 			break;
 	}
 }
+// Displays a loading screen with progress bar.
 function loadingScreen() {
 
 	return new Promise((resolve, reject) => {
@@ -54,7 +59,7 @@ function loadingScreen() {
 		function frame() {
 			if (width >= 100) {
 				clearInterval(id);
-				resolve(); // Zakończ promise po załadowaniu paska
+				resolve(); // Resolves the promise once loading is complete.
 			} else {
 				width++;
 				document.getElementById("myBar").style.width = width + "%";
@@ -62,25 +67,26 @@ function loadingScreen() {
 		}
 	});
 }
-
+// Sets up the screen where the player can start the game.
 function gameStartScreen(gameId) {
 	const gameScreen = document.querySelector('.game-screen');
 	const startButtonWrapper = document.createElement('div');
 	startButtonWrapper.classList.add('startButtonWrapper');
-	gameScreen.innerHTML = ''; // Czyszczenie zawartości
+	gameScreen.innerHTML = ''; // Clears the game screen.
 	gameScreen.style.backgroundColor = '#9BD9C1';
 
 
-	selectPlayerName();
+	selectPlayerName(); // Allows the player to set or update their name.
 
-const startButton = document.createElement('button');
+	const startButton = document.createElement('button');
 	startButton.classList.add('ingameButtons', 'shadow');
 	startButton.innerHTML = '<i class="fa-solid fa-circle-play"></i>';
 	startButton.addEventListener('click', () => gameSelection(gameId));
 	startButtonWrapper.appendChild(startButton);
 	gameScreen.appendChild(startButtonWrapper);
-}
 
+}
+// Allows the player to enter or change their name.
 function selectPlayerName() {
 	const gameScreen = document.querySelector('.game-screen');
 	gameScreen.style.backgroundImage = "url('./assets/images/background/background2.webp')"
@@ -94,7 +100,7 @@ function selectPlayerName() {
 	playerNameInput.type = 'text';
 	playerNameInput.maxLength = 3;
 	playerNameInput.addEventListener('focus', function () {
-		this.select(); // Automatycznie zaznacza cały tekst
+		this.select(); // Selects all text in the input box on focus for easy editing.
 	});
 	const playerNameBtn = document.createElement('button');
 	playerNameBtn.textContent = 'Set Name';
@@ -102,7 +108,7 @@ function selectPlayerName() {
 	playerNameBtn.addEventListener('click', () => {
 		const playerName = playerNameInput.value;
 		if (playerName) {
-			localStorage.setItem('playerName', playerName); // Zapisanie nazwy gracza
+			localStorage.setItem('playerName', playerName); // Saves the player's name in local storage.
 		}
 	});
 
@@ -114,32 +120,27 @@ function selectPlayerName() {
 }
 
 // form validation
-
-
-
-
+// Adds event listener for form submission and performs client-side validation.
 
 document.addEventListener('DOMContentLoaded', function () {
 	const form = document.querySelector('form');
 
 	if (form) {
 		form.addEventListener('submit', function (e) {
-			e.preventDefault();
+			e.preventDefault(); // Prevents form from submitting traditionally.
 			console.log('Form submission prevented.');
 
-			let isValid = true;
+			let isValid = true; // Tracks form validity.
 
 			const inputs = this.querySelectorAll('input');
 			inputs.forEach(input => {
 				if (!input.checkValidity()) {
 					isValid = false;
 					input.classList.add('error');
-				} else {
-					input.classList.remove('error');
 				}
 
 			})
-
+			// Submits form if all inputs are valid.
 			if (isValid) {
 				console.log('form submited');
 				form.submit();
