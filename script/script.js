@@ -4,8 +4,6 @@ buttons.forEach(button => {
 		const gameId = button.id; // upewnij się, że każdy przycisk ma ustawione id
 		await loadingScreen();
 		gameStartScreen(gameId);
-
-
 	});
 });
 
@@ -75,15 +73,12 @@ function gameStartScreen(gameId) {
 
 	selectPlayerName();
 
-
-	const startButton = document.createElement('button');
+const startButton = document.createElement('button');
 	startButton.classList.add('ingameButtons', 'shadow');
 	startButton.innerHTML = '<i class="fa-solid fa-circle-play"></i>';
 	startButton.addEventListener('click', () => gameSelection(gameId));
 	startButtonWrapper.appendChild(startButton);
 	gameScreen.appendChild(startButtonWrapper);
-
-
 }
 
 function selectPlayerName() {
