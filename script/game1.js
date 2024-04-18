@@ -286,14 +286,18 @@ function resetGame() {
 document.addEventListener('DOMContentLoaded', function () {
 	const gameScreen = document.querySelector('.game-screen');
 
+
 	// Setting up event delegation for instruction and leaderboard buttons
-	gameScreen.addEventListener('click', function (event) {
-		if (event.target.closest('.instruction')) {
-			showInstruction();
-		} else if (event.target.closest('.leaderboard')) {
-			showLeaderBoard();
-		}
-	});
+	if (gameScreen) {
+		// Setting up event delegation for instruction and leaderboard buttons
+		gameScreen.addEventListener('click', function (event) {
+			if (event.target.closest('.instruction')) {
+				showInstruction();
+			} else if (event.target.closest('.leaderboard')) {
+				showLeaderBoard();
+			}
+		});
+	}
 });
 
 function showInstruction() {

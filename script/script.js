@@ -118,5 +118,43 @@ function selectPlayerName() {
 
 }
 
+// form validation
 
 
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+	const form = document.querySelector('form');
+
+	if (form) {
+		form.addEventListener('submit', function (e) {
+			e.preventDefault();
+			console.log('Form submission prevented.');
+
+			let isValid = true;
+
+			const inputs = this.querySelectorAll('input');
+			inputs.forEach(input => {
+				if (!input.checkValidity()) {
+					isValid = false;
+					input.classList.add('error');
+				} else {
+					input.classList.remove('error');
+				}
+
+			})
+
+			if (isValid) {
+				console.log('form submited');
+				form.submit();
+			} else {
+				console.log('validation error');
+			}
+
+
+		})
+	}
+
+
+})

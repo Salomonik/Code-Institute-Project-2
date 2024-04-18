@@ -566,8 +566,6 @@ main {
 
 /* footer */
 .wrapper {
-
-
 	text-align: center;
 	align-items: end;
 }
@@ -603,7 +601,7 @@ td {
 	td {
 		padding: 4px;
 		/* Smaller padding for smaller screens */
-		font-size: 14px;
+		font-size: 12px;
 		/* Smaller font size if necessary */
 	}
 }

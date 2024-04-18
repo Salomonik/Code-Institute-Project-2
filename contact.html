@@ -28,8 +28,10 @@
 				<div class="game-screen-contact shadow" aria-live="polite">
 
 					<form action="https://formdump.codeinstitute.net/" method="post">
-						<label for="name"><strong>Name:</strong></label>
-						<input type="text" id="name" name="name" required>
+						<label for="username"><strong>Username:</strong></label>
+						<input type="text" id="username" name="username" required minlength="3" maxlength="15">
+						<label for="email"><strong>Email:</strong></label>
+						<input type="email" id="email" name="email" required>
 						<label for="form-textarea"><strong>Message:</strong></label>
 						<textarea name="form-textarea" cols="30" rows="10"></textarea>
 						<button class="form_button" type="submit">Submit</button>
