@@ -252,6 +252,7 @@ main {
 	font-family: var(--font-fourth);
 	font-size: larger;
 	text-align: center;
+	
 }
 
 #leaderboardBtn,
@@ -261,7 +262,6 @@ main {
 	font-family: var(--font-fourth);
 	font-size: var(--font-size-normal);
 	margin-top: 5px;
-
 	color: white;
 }
 
