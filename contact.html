@@ -2,75 +2,78 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
-    <title>Contact - Game Central</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="stylesheet" href="./css/style.css">
+	<link rel="icon" type="image/x-icon" href="./assets/images/logo/favicon.ico">
+	<title>Contact - Game Central</title>
 </head>
 
 <body>
-    <!-- Header section with main navigation -->
-    <header>
-        <nav class="navbar" aria-label="Main navigation">
-            <!-- Logo and home link -->
-            <div id="logo">
-                <a href="./index.html"><img src="./assets/images/logo/GameCentralLogo.webp" alt="Game Central logo"></a>
-            </div>
-            <!-- Navigation links to different pages -->
-            <div id="nav-list">
-                <a href="./about.html">About</a>
-                <a href="./contact.html" class="active">Contact</a> <!-- Active class to highlight the current page -->
-            </div>
-        </nav>
-    </header>
+	<!-- Header section with main navigation -->
+	<header>
+		<nav class="navbar" aria-label="Main navigation">
+			<!-- Logo and home link -->
+			<div id="logo">
+				<a href="./index.html"><img src="./assets/images/logo/GameCentralLogo.webp" alt="Game Central logo"></a>
+			</div>
+			<!-- Navigation links to different pages -->
+			<div id="nav-list">
+				<a href="./about.html">About</a>
+				<a href="./contact.html" class="active">Contact</a> <!-- Active class to highlight the current page -->
+			</div>
+		</nav>
+	</header>
 
-    <!-- Main content section for contact form -->
-    <main>
-        <div class="wrapper-game-window">
-            <div class="game-window shadow">
-                <div class="game-screen-contact shadow" aria-live="polite">
-                    <!-- Form for user input, using POST method -->
-                    <form action="https://formdump.codeinstitute.net/" method="post">
-                        <label for="username"><strong>Username:</strong></label>
-                        <input type="text" id="username" name="username" required minlength="3" maxlength="15">
-                        <label for="email"><strong>Email:</strong></label>
-                        <input type="email" id="email" name="email" required>
-                        <label for="form-textarea"><strong>Message:</strong></label>
-                        <textarea id="form-textarea" name="form-textarea" cols="30" rows="10"></textarea>
-                        <button class="form_button" type="submit">Submit</button>
-                    </form>
-                </div>
-            </div>
-        </div>
+	<!-- Main content section for contact form -->
+	<main>
+		<div class="wrapper-game-window">
+			<div class="game-window shadow">
+				<div class="game-screen-contact shadow" aria-live="polite">
+					<!-- Form for user input, using POST method -->
+					<form action="https://formdump.codeinstitute.net/" method="post">
+						<label for="username"><strong>Username:</strong></label>
+						<input type="text" id="username" name="username" required minlength="3" maxlength="15">
+						<label for="email"><strong>Email:</strong></label>
+						<input type="email" id="email" name="email" required>
+						<label for="form-textarea"><strong>Message:</strong></label>
+						<textarea id="form-textarea" name="form-textarea" cols="30" rows="10"></textarea>
+						<button class="form_button" type="submit">Submit</button>
+					</form>
+				</div>
+			</div>
+		</div>
 
-        <!-- Modals for displaying messages or other content (hidden by default) -->
-        <section>
-            <div id="endGameModal" class="modal" style="display:none;" role="dialog" aria-labelledby="endGameMessage" aria-modal="true">
-                <div class="modal-content shadow">
-                    <img id="modalImage" src="" alt="">
-                    <h2 id="endGameMessage"></h2>
-                    <button id="resetGameButton"><i class="fa-solid fa-rotate-right"></i></button>
-                </div>
-            </div>
-            <div id="instructionModal" class="modal" style="display:none;">
-                <div class="modal-content shadow"></div>
-            </div>
-            <div id="leaderboardModal" class="modal" style="display:none;">
-                <div class="modal-content shadow"></div>
-            </div>
-        </section>
-    </main>
+		<!-- Modals for displaying messages or other content (hidden by default) -->
+		<section>
+			<div id="endGameModal" class="modal" style="display:none;" role="dialog" aria-labelledby="endGameMessage"
+				aria-modal="true">
+				<div class="modal-content shadow">
+					<img id="modalImage" src="" alt="">
+					<h2 id="endGameMessage"></h2>
+					<button id="resetGameButton"><i class="fa-solid fa-rotate-right"></i></button>
+				</div>
+			</div>
+			<div id="instructionModal" class="modal" style="display:none;">
+				<div class="modal-content shadow"></div>
+			</div>
+			<div id="leaderboardModal" class="modal" style="display:none;">
+				<div class="modal-content shadow"></div>
+			</div>
+		</section>
+	</main>
 
-    <!-- Footer with copyright information -->
-    <footer class="wrapper">
-        <p>Copyright Jakub Parafian 2024</p>
-    </footer>
+	<!-- Footer with copyright information -->
+	<footer class="wrapper">
+		<p>Copyright Jakub Parafian 2024</p>
+	</footer>
 
-    <!-- Scripts for functionality and icon support -->
-    <script src="https://kit.fontawesome.com/ba182bdcb1.js" crossorigin="anonymous"></script>
-    <script src="./script/script.js"></script>
-    <script src="./script/game1.js"></script>
-   
+	<!-- Scripts for functionality and icon support -->
+	<script src="https://kit.fontawesome.com/ba182bdcb1.js" crossorigin="anonymous"></script>
+	<script src="./script/script.js"></script>
+	<script src="./script/game1.js"></script>
+
 </body>
 
 </html>

@@ -1,18 +1,19 @@
+// Initializes game1 environment and setup.
 function game1() {
 	const gameScreen = document.querySelector('.game-screen');
-	gameScreen.innerHTML = ''; // Czyszczenie zawartości
-	populateHTML()
-	buttonCreator();
+	gameScreen.innerHTML = ''; // Clears the game screen content.
+	populateHTML() // Calls function to populate the HTML with game UI.
+	buttonCreator(); // Calls function to create game buttons.
 
 
 }
-
+// Defines possible choices in the game
 const choices = [
 	{ rock: "scissors" },
 	{ paper: "rock" },
 	{ scissors: "paper" }
 ];
-
+// Creates buttons for the game based on the choices.
 function buttonCreator() {
 
 	let gameButtonContainer = document.querySelector('.game-button-container');
@@ -40,15 +41,15 @@ function buttonCreator() {
 			animateCharacters(result);
 		});
 
-		gameButtonContainer.appendChild(button); // Dodawanie przycisku do kontenera
+		gameButtonContainer.appendChild(button); // Appends button to container
 	}
 
 
 }
-
+// Populates HTML for the game interface.
 function populateHTML() {
 	const gameScreen = document.querySelector('.game-screen');
-
+	// Sets up HTML structure for the game interface.
 	gameScreen.innerHTML =
 		`
 		<div class="instructionBtn">
@@ -68,7 +69,7 @@ function populateHTML() {
 			<img class="game-image" src="./assets/images/game1/player1/ai-idle.webp" alt="">
 		</div>
 		<div class="game-button-container"></div>`
-
+	// Updates the player's name display.
 	updatePlayerName();
 
 }
@@ -79,13 +80,13 @@ function updatePlayerName() {
 		document.getElementById('playerName').textContent = playerName;
 	}
 }
-
+// Randomly selects a choice for the computer.
 let computerChoice = () => {
-	let randomNum = Math.floor(Math.random() * 3); // Usunięto (0) z Math.random(), jest to zbędne
+	let randomNum = Math.floor(Math.random() * 3); // Randomly selects between 0 and 2.
 	const choiceKeys = Object.keys(choices[randomNum]);
-	return choiceKeys[0]; // Zwraca klucz wyboru komputera, np. "rock"
+	return choiceKeys[0]; // Returns key : 'rock', 'paper', or 'scissors'
 };
-
+// Calculates the result of the game round based on choices.
 function calculateResults(playerChoice, computerChoiceResult) {
 
 
@@ -110,7 +111,7 @@ function calculateResults(playerChoice, computerChoiceResult) {
 		return ['lose', `${playerChoice}`, `${computerChoiceResult}`]; // Gracz wygrywa
 	}
 }
-
+// Clears the main game area of any children elements.
 function clearMainGame() {
 	const mainGame = document.querySelector('.mainGame');
 
@@ -118,7 +119,7 @@ function clearMainGame() {
 		mainGame.removeChild(mainGame.firstChild);
 	}
 }
-
+// Handles animation based on game results, showing appropriate images.
 function animateItems(result, image1, image2) {
 
 	if (result[1] === 'rock') {
@@ -359,7 +360,7 @@ function generateLeaderboardHTML() {
 function addToLeaderBoard(entry) {
 	const scores = JSON.parse(localStorage.getItem('leaderboard')) || [];
 	scores.push(entry);
-	scores.splice(0,1);
+	scores.splice(0, 1);
 	localStorage.setItem('leaderboard', JSON.stringify(scores));
 	updateLeaderboardDisplay();
 }
