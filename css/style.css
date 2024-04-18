@@ -82,7 +82,7 @@ h6 {
 	margin-block: var(--margin-normal);
 	font-size: 2.5rem;
 	font-weight: var(--font-weight-bold);
-	
+
 }
 
 
@@ -195,15 +195,16 @@ main {
 	height: 1rem;
 	padding-block: 1.5rem;
 	padding: inline 3rem;
-	
+
 	border-radius: 20px 20px 0 0;
 	font-family: var(--font-fourth);
 	font-size: 1rem;
 	color: white;
 	background-color: hsla(10, 90%, 40%, 1);
-	
+
 }
-.button:hover{
+
+.button:hover {
 	font-size: 1.30rem;
 	cursor: pointer;
 }
@@ -220,6 +221,8 @@ main {
 	background-color: var(--primary-color);
 }
 
+.game-screen-contact,
+.game-screen-about,
 .game-screen {
 	position: relative;
 	flex: 1;
@@ -230,26 +233,22 @@ main {
 	padding-block: 1rem;
 	border: 3px solid black;
 	border-radius: 1.75rem 1.75rem 1.75rem 1.75rem;
-	background-image: url(../assets/images/background/main-background.webp);
+
 	background-position: center;
 	background-size: cover;
 }
 
-.game-screen-about{
+.game-screen {
+	background-image: url(../assets/images/background/main-background.webp);
+}
 
-	position: relative;
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	gap: 5px;
-	padding-block: 1rem;
+.game-screen-about {
 	padding-inline: .5rem;
-	border: 3px solid black;
-	border-radius: 1.75rem 1.75rem 1.75rem 1.75rem;
 	background-color: var(--accent-color);
-	background-position: center;
-	background-size: cover;
+}
+
+.game-screen-contact {
+	background-color: var(--accent-color);
 }
 
 
@@ -266,7 +265,7 @@ main {
 	font-family: var(--font-fourth);
 	font-size: larger;
 	text-align: center;
-	
+
 }
 
 #leaderboardBtn,
@@ -282,14 +281,17 @@ main {
 .playerNameWrapper> :nth-last-child(2) {
 	color: black;
 }
+
 #leaderboardBtn,
 .playerNameWrapper> :nth-last-child(1) {
 	background-color: hsla(10, 90%, 40%, 1);
 }
+
 #leaderboardBtn:active,
 .playerNameWrapper> :nth-last-child(1):active {
 	transform: translateY(1px);
 }
+
 #leaderboardBtn:hover,
 .playerNameWrapper> :nth-last-child(1):hover {
 	cursor: pointer;
@@ -321,7 +323,7 @@ main {
 #splashScreen {
 	text-align: center;
 	color: black;
-	background-color: hsla(180, 33%, 96%, 0.6); 
+	background-color: hsla(180, 33%, 96%, 0.6);
 	position: relative;
 	top: 150px;
 
@@ -350,13 +352,13 @@ main {
 #myBar {
 	width: 1%;
 	height: 10px;
-	
+
 	background-color: white;
 	border-radius: 0 0 20px 20px;
-	
+
 }
 
-.hidden-image{
+.hidden-image {
 	display: none;
 }
 
@@ -429,8 +431,8 @@ main {
 	display: flex;
 	justify-content: space-between;
 
-	background-color: 	hsla(180, 33%, 96%, 0.6);
-	
+	background-color: hsla(180, 33%, 96%, 0.6);
+
 	position: relative;
 	top: 15px;
 }
@@ -537,7 +539,7 @@ main {
 	align-items: center;
 	text-align: center;
 	margin-inline: auto;
-	
+
 
 
 }
@@ -571,24 +573,71 @@ main {
 }
 
 table {
-	width: 100%;           /* Makes the table use all available horizontal space */
-    border-collapse: collapse; /* Collapses borders between table cells */
-    table-layout: fixed;   /* Ensures each column has a fixed width */
+	width: 100%;
+	/* Makes the table use all available horizontal space */
+	border-collapse: collapse;
+	/* Collapses borders between table cells */
+	table-layout: fixed;
+	/* Ensures each column has a fixed width */
 }
 
 
 
 
 
-th, td {
-    width: 25%;            /* Divide width equally if you have four columns, adjust accordingly */
-    padding: 8px;          /* Adds space inside the cell around content */
-    text-align: left;      /* Aligns text to the left; can be changed to center or right as needed */
-    border: 1px solid black; /* Adds a light grey border around each cell */
+th,
+td {
+	width: 25%;
+	/* Divide width equally if you have four columns, adjust accordingly */
+	padding: 8px;
+	/* Adds space inside the cell around content */
+	text-align: left;
+	/* Aligns text to the left; can be changed to center or right as needed */
+	border: 1px solid black;
+	/* Adds a light grey border around each cell */
 }
+
 @media screen and (max-width: 40em) {
-    th, td {
-        padding: 4px;      /* Smaller padding for smaller screens */
-        font-size: 14px;   /* Smaller font size if necessary */
-    }
+
+	th,
+	td {
+		padding: 4px;
+		/* Smaller padding for smaller screens */
+		font-size: 14px;
+		/* Smaller font size if necessary */
+	}
+}
+
+
+/* form */
+
+form {
+	display: grid;
+	justify-content: center;
+	border-radius: 30px;
+	padding: 0.5rem;
+	font-family: var(--font-fourth);
+	font-size: var(--font-size-normal);
+	margin-top: 5px;
+	color: black;
+}
+
+form > * {
+	border-radius: 30px;
+	padding: 0.5rem;
+	font-family: var(--font-fourth);
+	font-size: var(--font-size-normal);
+	margin-top: 5px;
+	color: black;
+
+}
+
+#form-textarea {
+	
+
+}
+
+.form_button  {
+background-color: hsla(10, 90%, 40%, 1);
+	color: white;
 }
