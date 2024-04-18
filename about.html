@@ -2,75 +2,83 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta property="og:title" content="Contact - Game Central" />
+	<meta property="og:description"
+		content="Reach out to Game Central for support and inquiries about our gaming products and services." />
+	<link rel="stylesheet" href="./css/style.css">
 	<link rel="icon" type="image/x-icon" href="./assets/images/logo/favicon.ico">
-    <title>Game Central - About Us</title>
+	<title>Game Central - About Us</title>
 </head>
 
 <body>
-    <!-- Header section with navigation links -->
-    <header>
-        <nav class="navbar" aria-label="Main navigation">
-            <!-- Logo and home link -->
-            <div id="logo">
-                <a href="./index.html"><img src="./assets/images/logo/GameCentralLogo.webp" alt="Game Central logo"></a>
-            </div>
-            <!-- Navigation links to different pages -->
-            <div id="nav-list">
-                <a href="./about.html" class="active">About</a>
-                <a href="./contact.html">Contact</a>
-            </div>
-        </nav>
-    </header>
+	<!-- Header section with navigation links -->
+	<header>
+		<nav class="navbar" aria-label="Main navigation">
+			<!-- Logo and home link -->
+			<div id="logo">
+				<a href="./index.html"><img src="./assets/images/logo/GameCentralLogo.webp" alt="Game Central logo"></a>
+			</div>
+			<!-- Navigation links to different pages -->
+			<div id="nav-list">
+				<a href="./about.html" class="active">About</a>
+				<a href="./contact.html">Contact</a>
+			</div>
+		</nav>
+	</header>
 
-    <!-- Main content area -->
-    <main>
-        <div class="wrapper-game-window">
-            <!-- About section providing information about Game Central -->
-            <div class="game-window shadow">
-                <div class="game-screen-about shadow" aria-live="polite">
-                    <h1>Welcome to Game Central</h1>
-                    <p>Game Central is designed to enhance your gaming experience with a user-friendly and visually appealing interface that caters to both casual and hardcore gamers.</p>
-                    
-                    <h2>Our Mission</h2>
-                    <p>Our mission is to provide an enriching, enjoyable, and easy-to-navigate gaming environment. We're committed to improving your gaming sessions with high-quality games and continuous updates.</p>
-                    
-                    <h2>What We Offer</h2>
-                    <p>Explore a wide range of games, engage with the community, and utilize detailed guides to maximize your gaming skills. Our platform is updated regularly to ensure fresh and exciting content for all players.</p>
-                </div>
-            </div>
-        </div>
+	<!-- Main content area -->
+	<main>
+		<div class="wrapper-game-window">
+			<!-- About section providing information about Game Central -->
+			<div class="game-window shadow">
+				<div class="game-screen-about shadow" aria-live="polite">
+					<h1>Welcome to Game Central</h1>
+					<p>Game Central is designed to enhance your gaming experience with a user-friendly and visually
+						appealing interface that caters to both casual and hardcore gamers.</p>
 
-        <!-- Modals for end game, instructions, and leaderboard (hidden by default) -->
-        <section>
-            <div id="endGameModal" class="modal" style="display:none;" role="dialog" aria-labelledby="endGameMessage" aria-modal="true">
-                <div class="modal-content shadow">
-                    <img id="modalImage" src="" alt="">
-                    <h2 id="endGameMessage"></h2>
-                    <button id="resetGameButton"><i class="fa-solid fa-rotate-right"></i></button>
-                </div>
-            </div>
-            <div id="instructionModal" class="modal" style="display:none;">
-                <div class="modal-content shadow"></div>
-            </div>
-            <div id="leaderboardModal" class="modal" style="display:none;">
-                <div class="modal-content shadow"></div>
-            </div>
-        </section>
-    </main>
+					<h2>Our Mission</h2>
+					<p>Our mission is to provide an enriching, enjoyable, and easy-to-navigate gaming environment. We're
+						committed to improving your gaming sessions with high-quality games and continuous updates.</p>
 
-    <!-- Footer with copyright information -->
-    <footer class="wrapper">
-        <p>Copyright Jakub Parafian 2024</p>
-    </footer>
+					<h2>What We Offer</h2>
+					<p>Explore a wide range of games, engage with the community, and utilize detailed guides to maximize
+						your gaming skills. Our platform is updated regularly to ensure fresh and exciting content for
+						all players.</p>
+				</div>
+			</div>
+		</div>
 
-    <!-- External scripts for functionality and Font Awesome for icons -->
-    <script src="https://kit.fontawesome.com/ba182bdcb1.js" crossorigin="anonymous"></script>
-    <script src="./script/script.js"></script>
-    <script src="./script/game1.js"></script>
- 
+		<!-- Modals for end game, instructions, and leaderboard (hidden by default) -->
+		<section>
+			<div id="endGameModal" class="modal" style="display:none;" role="dialog" aria-labelledby="endGameMessage"
+				aria-modal="true">
+				<div class="modal-content shadow">
+					<img id="modalImage" src="" alt="">
+					<h2 id="endGameMessage"></h2>
+					<button id="resetGameButton"><i class="fa-solid fa-rotate-right"></i></button>
+				</div>
+			</div>
+			<div id="instructionModal" class="modal" style="display:none;">
+				<div class="modal-content shadow"></div>
+			</div>
+			<div id="leaderboardModal" class="modal" style="display:none;">
+				<div class="modal-content shadow"></div>
+			</div>
+		</section>
+	</main>
+
+	<!-- Footer with copyright information -->
+	<footer class="wrapper">
+		<p>Copyright Jakub Parafian 2024</p>
+	</footer>
+
+	<!-- External scripts for functionality and Font Awesome for icons -->
+	<script src="https://kit.fontawesome.com/ba182bdcb1.js" crossorigin="anonymous"></script>
+	<script src="./script/script.js"></script>
+	<script src="./script/game1.js"></script>
+
 </body>
 
 </html>
