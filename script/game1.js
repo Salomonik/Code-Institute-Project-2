@@ -46,7 +46,6 @@ function buttonCreator() {
 
 }
 
-
 function populateHTML() {
 	const gameScreen = document.querySelector('.game-screen');
 
@@ -81,7 +80,6 @@ function updatePlayerName() {
 	}
 }
 
-
 let computerChoice = () => {
 	let randomNum = Math.floor(Math.random() * 3); // Usunięto (0) z Math.random(), jest to zbędne
 	const choiceKeys = Object.keys(choices[randomNum]);
@@ -113,7 +111,6 @@ function calculateResults(playerChoice, computerChoiceResult) {
 	}
 }
 
-
 function clearMainGame() {
 	const mainGame = document.querySelector('.mainGame');
 
@@ -121,7 +118,6 @@ function clearMainGame() {
 		mainGame.removeChild(mainGame.firstChild);
 	}
 }
-
 
 function animateItems(result, image1, image2) {
 
@@ -139,9 +135,6 @@ function animateItems(result, image1, image2) {
 	}
 
 }
-
-
-
 
 function animateCharacters(result) {
 	clearMainGame();
@@ -192,7 +185,6 @@ function animateCharacters(result) {
 
 }
 
-
 function updateScore(result) {
 
 	const winDisplay = document.getElementById('p1Score');
@@ -239,12 +231,6 @@ function updateScore(result) {
 	}
 }
 
-
-
-
-
-
-
 function checkEndGame(wins, loses) {
 	const gameEnded = wins >= 10 || loses >= 10; // This checks if the game should end
 	if (gameEnded) {
@@ -254,10 +240,6 @@ function checkEndGame(wins, loses) {
 	}
 	return false; // Return false to indicate the game continues
 }
-
-
-
-
 
 function displayEndGameModal(message) {
 
@@ -301,9 +283,6 @@ function resetGame() {
 	});
 }
 
-
-
-
 document.addEventListener('DOMContentLoaded', function () {
 	const gameScreen = document.querySelector('.game-screen');
 
@@ -316,8 +295,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	});
 });
-
-
 
 function showInstruction() {
 	const instructionModal = document.querySelector('#instructionModal');
@@ -350,11 +327,15 @@ function showLeaderBoard() {
 	modal.style.display = 'block';
 	modal.querySelector('.modal-content').innerHTML = generateLeaderboardHTML();
 	updateLeaderboardDisplay();
+	leaderboardModal.querySelector('.modalCloseBtn').addEventListener('click', function () {
+		leaderboardModal.style.display = 'none';
+	});
 }
 
 function generateLeaderboardHTML() {
 	return `
         <div id="leaderboard">
+		<button class="modalCloseBtn" style="justify-self: flex-start"><i class="fa-solid fa-x"></i></button>
             <h2>Leaderboard</h2>
             <table class="scoresList">
                 <thead>

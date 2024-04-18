@@ -86,9 +86,6 @@ function gameStartScreen(gameId) {
 
 }
 
-
-
-
 function selectPlayerName() {
 	const gameScreen = document.querySelector('.game-screen');
 	gameScreen.style.backgroundImage = "url('./assets/images/background/background2.webp')"
