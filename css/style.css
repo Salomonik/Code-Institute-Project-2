@@ -1,8 +1,8 @@
+/* Importing external fonts from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 
-
-
+/* Basic reset for padding and margin to ensure consistency across browsers */
 *,
 *::before,
 *::after {
@@ -11,6 +11,7 @@
 	margin: 0;
 }
 
+/* CSS variables for easy theme management */
 :root {
 	--background-color: #F3F9F9;
 	--primary-color: hsla(10, 90%, 40%, 1);
@@ -30,11 +31,7 @@
 	--line-height-normal: 1.6;
 	--line-height-heading: 1.3;
 
-
-
 	--word-spacing-normal: 0.5px;
-
-
 
 	--font-weight-light: 300;
 	--font-weight-normal: 400;
@@ -52,6 +49,7 @@
 	--margin-large: 1.5rem;
 }
 
+/* Basic body styles including font and layout settings */
 body {
 
 	max-width: 1050px;
@@ -59,7 +57,6 @@ body {
 	background-color: var(--background-color);
 	margin-inline: auto;
 	font-family: var(--font-secondary);
-	/* Roboto as the primary font for the body */
 	font-weight: var(--font-weight-normal);
 	font-size: var(--font-size-normal);
 	line-height: var(--line-height-normal);
@@ -71,6 +68,7 @@ body {
 
 }
 
+/* Styling for heading elements */
 h1,
 h2,
 h3,
@@ -85,14 +83,14 @@ h6 {
 
 }
 
-
-
+/* Paragraph styles */
 p {
 
 	margin-top: var(--spacing-normal);
 	margin-bottom: var(--spacing-normal);
 }
 
+/* Link styles and hover effects */
 a {
 	color: black;
 	font-size: var(--font-size-extra-large);
@@ -106,25 +104,24 @@ a:hover {
 	/* Adds underline on hover for better UX */
 }
 
+/* Ensures images are responsive and have a block display */
 img {
 	max-width: 100%;
 	display: block;
 }
 
+/* Generic shadow class for adding shadow to elements */
 .shadow {
 	box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
-
-
-/* Navbar */
+/* Navbar styling */
 header {
 	margin: 0;
 	padding: 0;
 }
 
 .navbar {
-
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -134,7 +131,6 @@ header {
 	max-width: 70px;
 	max-height: 70px;
 	border-radius: 50%;
-
 }
 
 #nav-list {
@@ -149,31 +145,25 @@ header {
 
 
 
-/* Main */
+/* Main layout settings for the <main> element */
 main {
-
 	min-width: 100%;
 	flex: 1;
-
 	margin-inline: auto;
 	display: grid;
 	grid-template-rows: 1fr;
-
-
 }
 
-
-.wrapper-game-window,
+* Styling for game and instruction window wrappers,
+setting up flexible column layouts */ .wrapper-game-window,
 .wrapper-instruction-window {
 	padding: var(--padding-small);
 	display: flex;
 	flex-direction: column;
 }
 
-
-
-
 /* Main game window */
+/* Container for game option buttons, with flexbox for even spacing and alignment */
 .btn-options {
 
 	list-style: none;
@@ -185,6 +175,7 @@ main {
 
 }
 
+/* Basic button styles for game options with visual feedback on hover */
 .button {
 
 	display: flex;
@@ -209,7 +200,7 @@ main {
 	cursor: pointer;
 }
 
-
+/* Styles for game and instruction windows */
 .game-window,
 .instruction-window {
 	flex: 1;
@@ -221,6 +212,7 @@ main {
 	background-color: var(--primary-color);
 }
 
+/* Specific styles for different game screens, using background images and colors */
 .game-screen-contact,
 .game-screen-about,
 .game-screen {
@@ -251,9 +243,7 @@ main {
 	background-color: var(--accent-color);
 }
 
-
-
-
+/* Styles for player name input wrapper within the game screen */
 .playerNameWrapper {
 	flex: 1;
 	display: flex;
@@ -268,6 +258,7 @@ main {
 
 }
 
+/* Styling for buttons within the playerNameWrapper, with adjustments for hover and active states */
 #leaderboardBtn,
 .playerNameWrapper> :nth-last-child(-n+2) {
 	border-radius: 30px;
@@ -297,14 +288,14 @@ main {
 	cursor: pointer;
 }
 
-
+/* Flex container for the start button within the game screen */
 .startButtonWrapper {
 	display: flex;
 	align-content: center;
 }
 
 
-
+/* Instruction screen specific styles, with a focus on content alignment and background color */
 .instruction-screen {
 	flex: 1;
 	display: flex;
@@ -337,6 +328,7 @@ main {
 
 
 /* Game Screen */
+
 /* loading screen */
 #myProgress {
 	font-family: var(--font-fourth);
@@ -363,7 +355,7 @@ main {
 }
 
 /* splash screen/start screen */
-
+/* Start screen button style */
 .startGameBtn {
 	font-family: var(--font-third);
 	font-size: var(--font-size-extra-large);
@@ -398,6 +390,7 @@ main {
 	gap: 10px;
 }
 
+/* Style for close button and instruction icons */
 .modalCloseBtn,
 .instructionBtn>div {
 	display: flex;
@@ -420,8 +413,8 @@ main {
 	cursor: pointer;
 }
 
-
 /* top - score */
+/* Score section styling */
 .score {
 	font-family: var(--font-fourth);
 	font-size: 2rem;
@@ -437,14 +430,15 @@ main {
 	top: 15px;
 }
 
+/* Individual score elements styling */
 .score>* {
 	text-align: center;
 	flex: 1;
 }
 
 
-
 /* middle - players */
+/* Main game display area styling */
 .mainGame {
 
 	flex: 1;
@@ -454,10 +448,12 @@ main {
 
 }
 
+/* Game image styling */
 .game-image {
 	max-width: 40%;
 }
 
+/* Responsive design adjustments for game images */
 @media (max-width: 40em) {
 	.game-image {
 		max-width: 50%;
@@ -465,15 +461,15 @@ main {
 }
 
 
-
-
 /*botton - buttons*/
+/* Game button container styling */
 .game-button-container {
 	display: flex;
 	justify-content: space-around;
 
 }
 
+/* Styles for reset and in-game buttons */
 #resetGameButton,
 .ingameButtons {
 	display: flex;
@@ -502,7 +498,7 @@ main {
 
 
 /* End game screen */
-
+/* Styling for modals used for end-game screens and other overlays */
 .modal {
 
 	position: fixed;
@@ -516,11 +512,9 @@ main {
 	display: flex;
 	align-content: center;
 	justify-content: center;
-
-	/* Centrowanie w poziomie */
-
 }
 
+/* Content within modals */
 .modal-content {
 	font-family: var(--font-fourth);
 	position: relative;
@@ -537,6 +531,7 @@ main {
 	margin-inline: auto;
 }
 
+/* Responsive adjustments for modal content */
 @media screen and (max-width: 40em) {
 	.modal-content {
 		min-width: 95%;
@@ -545,10 +540,12 @@ main {
 	}
 }
 
+/* Image styling within modals */
 #modalImage {
 	max-width: 100px;
 }
 
+/* Close button within modals */
 .modalCloseBtn {
 	position: absolute;
 	right: 2px;
@@ -561,6 +558,7 @@ main {
 	align-items: end;
 }
 
+/* Table styling */
 table {
 	width: 100%;
 	/* Makes the table use all available horizontal space */
@@ -570,6 +568,7 @@ table {
 	/* Ensures each column has a fixed width */
 }
 
+/* Styling for table headers and cells */
 th,
 td {
 	width: 25%;
@@ -582,6 +581,7 @@ td {
 	/* Adds a light grey border around each cell */
 }
 
+/* Responsive adjustments for tables */
 @media screen and (max-width: 40em) {
 
 	th,
@@ -594,7 +594,7 @@ td {
 }
 
 
-/* form */
+/* Form styling */
 
 form {
 	display: grid;
@@ -607,7 +607,8 @@ form {
 	color: black;
 }
 
-form > * {
+/* General styling for elements inside forms */
+form>* {
 	border-radius: 30px;
 	padding: 0.5rem;
 	font-family: var(--font-fourth);
@@ -617,11 +618,12 @@ form > * {
 
 }
 
-.form_button  {
-background-color: hsla(10, 90%, 40%, 1);
+.form_button {
+	background-color: hsla(10, 90%, 40%, 1);
 	color: white;
 }
 
+/* 404 page styling */
 .error-page {
 	display: grid;
 	justify-content: center;
