@@ -31,6 +31,7 @@ function buttonCreator() {
 		const button = document.createElement('button');
 		button.innerHTML = iconChoice;
 		button.id = `${choiceKey}`;
+		button.setAttribute('aria-label', `${choiceKey}`);
 		button.classList.add('ingameButtons',);
 
 		button.addEventListener('click', function () {
