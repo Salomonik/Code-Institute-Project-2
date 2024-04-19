@@ -250,8 +250,8 @@ This method is intentional to enhance user experience by not loading all assets 
 ### Browser Test
 
 - Tested on Windows/Android with different browsers, everything works as intended.
-- Tested on Chrome, Firefox, Opera web browsers. I have tested user interactions (eg. all links, forms, gallery image highlights and modal), all work correctly. Responsiveness on all browsers tested and no anomally found.
-- Tested on Android phone, collapsed navbar, responsiveness works corectly.
+- Tested on Chrome, Firefox, Opera web browsers. I have tested user interactions, all work correctly. Responsiveness on all browsers tested and no anomally found.
+- Tested on Android phone, responsiveness works corectly.
 - Tested on Chrome developer tools to check responsiveness with different resolutions.
 - Tested via
   - [http://www.responsinator.com/](http://www.responsinator.com/?url=https%3A%2F%2Fsalomonik.github.io%2FCode-Institute-Project-2%2Fcontact.html)
@@ -259,24 +259,24 @@ This method is intentional to enhance user experience by not loading all assets 
 
 ## Bug Tracking and Fixes
 
-- During development, a bug occurred when expanding the navbar, the contents briefly showed up during the animation. That bug cause a major impact on user experience and functionality. My solution was to rewrite that part of CSS code.<br><br>
-- ![bug](./assets/documentation/problem1.webp)
-- There are no unresolved bugs in my project, everything works as intented so no plans for future resolution. Project is final.
+- There are no unresolved bugs in my project, everything works as intented.
 
 ## Technologies Used
 
 - HTML5
 - CSS
+- JS
 
 ## Frameworks - Libraries - Programs Used
 
-- [Bootstrap 5.3.2](https://getbootstrap.com/) - Used to build site layout, Bootstrap 5.3.2 was used to ensure the site's responsive design, enabling a seamless user experience across different devices."
+- [DALL-E](https://openai.com/dall-e-3) - Used to create all graphics on site including background and character animations.
 - [Balsamiq](https://balsamiq.com/) - Used to build wireframe.
 - [Fontawesome](https://fontawesome.com/) - Used social icons for footer.
+- [GoogleFonts](https://fonts.google.com/) - Used for typography on site.
 - [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) - Used to check site responsiveness.
 - [GitHub](https://github.com/) - Used as a version control and hosting.
 - [W3C](https://www.w3.org/) - Used as a Validators to both HTML & CSS.
-- [Imageresizer](https://imageresizer.com/) - Used to resize/crop pictures.
+- [Remove BG](https://www.remove.bg/) - Used to remove background from images.
 
 ## Pre-Deployment Checklist
 
@@ -294,33 +294,30 @@ This method is intentional to enhance user experience by not loading all assets 
 
 ## Reflections
 
-- Successes: Achieved a user-friendly, informative fan site that scales well across devices. Gained proficiency in Bootstrap and improved understanding of web accessibility.
-- Challenges: Encountered difficulties with cross-browser styling consistency; resolved through research and testing.
-- Learnings: The importance of thorough planning and user-centric design, adapting to changes and user feedback efficiently.
+### Achievements
 
-## Credits
+- **Enhanced Skills**: Working on this project allowed me to significantly enhance my web development skills, especially in the areas of responsive design, user interaction, and the integration of dynamic content using JavaScript.
+- **AI Integration**: Successfully integrating DALL-E generated images was a milestone, showing my capability to blend emerging AI technologies with traditional web development to create a unique user experience.
 
-### Media
+### Challenges
 
-Character pictures and logo icon sourced from:
+- **Image Generation**: One of the main technical challenges was figuring out how to effectively use DALL-E to create images that fit seamlessly into the site’s design. Ensuring that these images maintained consistency with the site’s theme required careful planning and multiple iterations.
+- **Game Development**: Implementing the interactive games, especially ensuring they are engaging and function seamlessly across different devices and browsers, proved to be challenging. It involved extensive testing and refinement.
 
-- [https://www.pngwing.com/](https://www.pngwing.com/)
+### Lessons Learned
 
-Banner and Gallery pictures are sourced from:
+- **User-Centered Design**: This project reinforced the importance of user-centered design principles. I learned to prioritize accessibility and intuitive navigation to ensure a smooth user experience.
 
-- [https://wallpapers.com/one-piece](https://wallpapers.com/one-piece)
-  - credits goes to rich.gillespie, young27, belonging, ryan.furtado, yflz0808, tos2941, selekova_460, goober.
+### Future Improvements
 
-Media pictures are sourced from:
+- **Adding More Games**: Plans are in place to expand the range of games available, which will cater to a wider audience and enhance user engagement.
 
-- [https://www.amazon.co.uk/](https://www.amazon.co.uk/)
+### Conclusion
 
-Map picture is sourced from:
+Reflecting on this project, I appreciate the valuable insights gained and the growth in my technical capabilities. I look forward to applying these lessons to future projects.
 
-- [Reddit](https://www.reddit.com/r/OnePiece/comments/em8vjl/oc_one_piece_world_map_more_in_the_comments/)
-  - credits goes to OP
 
 ## Acknowledgments
 
 Antonio R. - my mentor for giving me tips how to do it properly. <br><br>
-Slack / Reddit(webdev) community for support.
+Slack / Reddit(webdev) community for support and knowledge.
