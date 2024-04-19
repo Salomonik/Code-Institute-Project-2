@@ -2,7 +2,7 @@
 function game1() {
 	const gameScreen = document.querySelector('.game-screen');
 	gameScreen.innerHTML = ''; // Clears the game screen content.
-	populateHTML() // Calls function to populate the HTML with game UI.
+	populateHTML(); // Calls function to populate the HTML with game UI.
 	buttonCreator(); // Calls function to create game buttons.
 
 
@@ -21,7 +21,7 @@ function buttonCreator() {
 		'<i class="fa-regular fa-hand-back-fist"></i>',
 		'<i class="fa-regular fa-hand"></i>',
 		'<i class="fa-regular fa-hand-scissors"></i>'
-	]
+	];
 
 
 	for (let i = 0; i < choices.length; i++) {
