@@ -94,8 +94,8 @@ function calculateResults(playerChoice, computerChoiceResult) {
 
 
 	if (playerChoice === computerChoiceResult) {
-		console.log(`Remis! Oboje wybraliście ${playerChoice}.`);
-		return ['draw', `${playerChoice}`, `${computerChoiceResult}`]; // Gracz wygrywa
+		console.log(`draw! both choose ${playerChoice}.`);
+		return ['draw', `${playerChoice}`, `${computerChoiceResult}`]; // draw
 	}
 
 	const winConditions = {
@@ -105,11 +105,11 @@ function calculateResults(playerChoice, computerChoiceResult) {
 	};
 
 	if (computerChoiceResult === winConditions[playerChoice]) {
-		console.log(`Wygrałeś! ${playerChoice} bije ${computerChoiceResult}.`)
-		return ['win', `${playerChoice}`, `${computerChoiceResult}`]; // Gracz wygrywa
+		console.log(`U won! ${playerChoice} beats ${computerChoiceResult}.`)
+		return ['win', `${playerChoice}`, `${computerChoiceResult}`]; // player wins
 	} else {
-		console.log(`Przegrałeś! ${computerChoiceResult} bije ${playerChoice}.`)
-		return ['lose', `${playerChoice}`, `${computerChoiceResult}`]; // Gracz wygrywa
+		console.log(`u lose! ${computerChoiceResult} beats ${playerChoice}.`)
+		return ['lose', `${playerChoice}`, `${computerChoiceResult}`]; // ai wins
 	}
 }
 // Clears the main game area of any children elements.
