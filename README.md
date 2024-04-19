@@ -245,8 +245,13 @@ This method is intentional to enhance user experience by not loading all assets 
 
 - CSS
   - No errors were returned when passing through the official W3C Markup Validator by direct input.<br>
-    - [jigsaw.w3.org results](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fsalomonik.github.io%2FCode-Institute-Project-2%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+    - [jigsaw.w3.org results](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fsalomonik.github.io%2FCode-Institute-Project-2%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)<br>
       ![css-validated](./assets/documentation/w3c-validator.png)
+
+- JS
+	- No errors returned when passing via https://jshint.com/.<br>
+	-![js-validated](./assets/documentation/jshintValidator-game1.png)<br>
+	-![js-validated](./assets/documentation/jshintValidator.png)
 
 ### Lighthouse Test
 
