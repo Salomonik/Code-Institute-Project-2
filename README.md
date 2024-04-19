@@ -257,6 +257,11 @@ This method is intentional to enhance user experience by not loading all assets 
 
 - \*![lighhouse results](./assets/documentation/lighthouse.png)
 
+### Manual Testing
+
+   - Ensured that game function as expected with no errors during game starts, plays, and ends.
+  
+
 ### Form Test
 
 - The form require both Name and Email to be submited. It runs HTMLSelectElement.checkValidity() to confirm validation before submition.
@@ -276,8 +281,8 @@ This method is intentional to enhance user experience by not loading all assets 
   - [https://ui.dev/amiresponsive](https://ui.dev/amiresponsive?url=https://salomonik.github.io/Code-Institute-Project-2/index.html)
 
 ## Bug Tracking and Fixes
-
-- There are no unresolved bugs in my project, everything works as intented.
+- **About.html and form.html scroll bar**: Scroll bar was seen during tests in mobile screens which looked odd. Fixed by styling css to remove any scrolling on pages.
+- **Leaderboard Overflow**: The leaderboard would overflow without scrolling on small screens. Fixed by css styling and adding max 10 records in leaderboard for consistency purpose.
 
 ## Technologies Used
 
