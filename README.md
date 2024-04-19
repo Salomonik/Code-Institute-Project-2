@@ -101,9 +101,6 @@ Colors are used purposefully throughout the design to enhance usability and aest
 This table provides a quick reference to the color palette used in the game hub, highlighting the consistency and thematic alignment across the user interface.
 
 
-### Fonts
-Website combine **Oswald** and **Source Sans 3** fonts to enchance readibility and visual appeal.
-
 ## Wireframe
 
 <details>
@@ -113,13 +110,13 @@ Website combine **Oswald** and **Source Sans 3** fonts to enchance readibility a
 
 <summary>Main Page</summary>
 
-![Main Page Wireframe](./assets/documentation/New%20Wireframe%201.png)
+![Main Page Wireframe](./assets/documentation/index-main.png)
 </details>
 
 <details>
 <summary>Gallery</summary>
 
-![Gallery Page Wireframe](./assets/documentation/New%20Wireframe%202.png)
+![Start Game Page Wireframe](./assets/documentation/index-startgame.png)
 </details>
 
 
@@ -127,16 +124,10 @@ Website combine **Oswald** and **Source Sans 3** fonts to enchance readibility a
 <details>
 <summary>Contact</summary>
 
-![Gallery Page Wireframe](./assets/documentation/New%20Wireframe%203.png)
+![Main Game Wireframe](./assets/documentation/index-gamescreen.png)
 </details>
 
 </details>
-
-<details>
-<summary>Mobile</summary>
-
-![Mobile Page Wireframe](./assets/documentation/New%20Wireframe%20mobile.png)
-
 
 </details>
 
