@@ -1,6 +1,6 @@
 // Adds event listeners to buttons for selecting games.
 let buttons = document.querySelectorAll('.game-container');
-buttons.forEach(button => {
+buttons.forEach((button) => {
 	button.addEventListener('click', async () => {
 		const gameId = button.id; // Retrieves game ID from button.
 		await loadingScreen(); // Displays loading screen before game starts.
