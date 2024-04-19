@@ -64,29 +64,42 @@ Frequent users of Game Central are central to the iterative development process 
 This proactive approach to user engagement ensures that frequent visitors not only see Game Central as a fun place to play games but also as a community that values their input and grows with their contributions.
 
 ## Design
-   - **Navigation:**
-     Implementing an intuitive navigation system, making it easy for users to explore different sections of the website seamlessly.
-   - **Responsive Design:**
-     Ensuring that the website is accessible and user-friendly across a variety of devices, providing an optimal viewing experience.
-   - **Visual Appeal:**
-     Incorporating visually appealing elements, including high-quality images and a well-designed layout to enhance the overall user experience.
+
+### Typography and Fonts
+- **Font Choices**: The project utilizes a combination of 'Fjalla One', 'Roboto' and 'Orbitron' fonts imported from Google Fonts. 'Fjalla One' is primarily used for headings due to its bold and clean appearance, which captures attention and makes headings stand out. 'Roboto', known for its readability, is used for body text to ensure content is easily digestible for younger audiences. 'Orbitron', with its techy and futuristic feel, is used in specific UI elements to add a modern touch, enhancing the thematic elements of the games.
+- **Typography Rules**: Detailed typography rules are set in CSS for managing font sizes, line heights, and weights. This includes settings for different text elements like headings and paragraphs, ensuring content is not only readable but also aesthetically pleasing.
+
+### Color Scheme
+- **Color Variables**: The design incorporates a vibrant and playful color palette defined in CSS variables, which helps in maintaining consistency throughout the application. The primary color is a vivid red-orange, which adds a lively and energetic feel, suitable for a gaming environment. Secondary and accent colors are used to provide contrast and highlight important elements like buttons and interactive areas.
+- **Usage of Colors**: The colors are thoughtfully applied across the UI to differentiate interactive elements, denote actions, and maintain visual interest. This approach helps in guiding users through their interactions with the game hub.
+
+### Layout and Structure
+- **Responsive Design**: The layout is built using Flexbox and CSS Grid, which provides a robust structure for arranging content and ensures the site is adaptable to different screen sizes. This is crucial for accessibility on devices predominantly used by children, such as tablets and smartphones.
+- **Game-specific Layouts**: Each game screen has tailored styles to suit its content and functionality. For instance, game instruction screens and active game screens are styled distinctly to differentiate them clearly to the user.
+
+### Interactive Elements
+- **Button Styles**: Buttons are styled with dynamic effects such as color changes and size increases on hover, which not only improves user experience by making the interface interactive but also helps in drawing attention to actionable items.
 
 
 ## Color Reference
 
-I used vibrant reds, blue hues, and warm yellows to capture the dynamic and adventurous atmosphere of the One Piece world, immersing users in a journey through the mysterious Grand Line seas.
+Colors are used purposefully throughout the design to enhance usability and aesthetic appeal, fitting the game's theme and making the interface lively and engaging.
 
-| Color                | Hex                                                                      |
-| -------------------- | ------------------------------------------------------------------------ |
-| Background           | ![#4dcaf6](https://via.placeholder.com/10/4dcaf6?text=+) #4dcaf6    |
-| Navbar               | ![#dc0f0dcc](https://via.placeholder.com/10/dc0f0dcc?text=+) #dc0f0dcc    |
-| Introduction Section | ![#fddf2866](https://via.placeholder.com/10/fddf28668?text=+) #fddf2866 |
-| Character Section    | ![#0b44c866](https://via.placeholder.com/10/0b44c866?text=+) #0b44c866   |
-| Map Section          | ![#09086e66](https://via.placeholder.com/10/09086e66?text=+) #09086e66   |
-| Media Section        | ![#b3480b66](https://via.placeholder.com/10/b3480b66?text=+) #b3480b66   |
-| Gallery Section      | ![#be062066](https://via.placeholder.com/10/be062066?text=+) #be062066   |
-| Contact Section      | ![#dfd50066](https://via.placeholder.com/10/00b48a?text=+) #dfd50066     |
-| Footer Section       | ![#00b9ff](https://via.placeholder.com/10/00b9ff?text=+) #00b9ff     |
+| Color          | Hex                                                              |
+|----------------|------------------------------------------------------------------|
+| Background     | ![#F3F9F9](https://via.placeholder.com/10/F3F9F9?text=+) `#F3F9F9` |
+| Primary Color  | ![#fa541c](https://via.placeholder.com/10/fa541c?text=+) `#fa541c` |
+| Secondary Color| ![#e5e9cc](https://via.placeholder.com/10/e5e9cc?text=+) `#e5e9cc` |
+| Accent Color   | ![#7CC8CA](https://via.placeholder.com/10/7CC8CA?text=+) `#7CC8CA` |
+| Navbar         | ![#fa541c](https://via.placeholder.com/10/fa541c?text=+) `#fa541c` |
+| Buttons        | ![#fa541c](https://via.placeholder.com/10/fa541c?text=+) `#fa541c` |
+| Text           | ![#000000](https://via.placeholder.com/10/000000?text=+) `#000000` |
+| Link Hover     | ![#ffffff](https://via.placeholder.com/10/ffffff?text=+) `#ffffff` |
+| Modal Background| ![#e5e9cc](https://via.placeholder.com/10/e5e9cc?text=+) `#e5e9cc` |
+| Footer         | ![#fa541c](https://via.placeholder.com/10/fa541c?text=+) `#fa541c` |
+
+This table provides a quick reference to the color palette used in the game hub, highlighting the consistency and thematic alignment across the user interface.
+
 
 ### Fonts
 Website combine **Oswald** and **Source Sans 3** fonts to enchance readibility and visual appeal.
