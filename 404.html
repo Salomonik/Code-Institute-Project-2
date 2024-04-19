@@ -37,6 +37,9 @@
 					<div class="error-page">
 						<img src="./assets/images/game1/player1/cat-loser.webp" alt="">
 						<h2>404 PAGE NOT FOUND</h2>
+						<p>You will be redirected to the homepage in 5 seconds.</p>
+    <p style="text-align: center;" >If not, <a href="/">click here</a> to continue.</p>
+   
 					</div>
 					
 				</div>
@@ -68,6 +71,11 @@
 	</footer>
 
 	<!-- Scripts for functionality and icon support -->
+	<script>
+        setTimeout(function() {
+            window.location.href = '/';
+        }, 5000); // Redirect after 5 seconds
+    </script>
 	<script src="https://kit.fontawesome.com/ba182bdcb1.js" crossorigin="anonymous"></script>
 	<script src="./script/script.js"></script>
 	<script src="./script/game1.js"></script>
