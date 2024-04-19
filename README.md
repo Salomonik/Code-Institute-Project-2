@@ -1,4 +1,4 @@
-[Am i responsive](./assets/documentation/responsive.png)<br>
+![Am i responsive](./assets/documentation/responsive.png)<br>
 
 ### The live link can be found here - [Game Central](https://salomonik.github.io/Code-Institute-Project-2/index.html)
 
@@ -116,7 +116,7 @@ This table provides a quick reference to the color palette used in the game hub,
 ## Wireframe
 
 <details>
-<summary>Desktop</summary>
+<summary>Wireframe</summary>
 
 <details>
 
@@ -127,18 +127,31 @@ This table provides a quick reference to the color palette used in the game hub,
 </details>
 
 <details>
-<summary>Gallery</summary>
+<summary>Start Game Page</summary>
 
 ![Start Game Page Wireframe](./assets/documentation/index-startgame.png)
 
 </details>
 
 <details>
-<summary>Contact</summary>
+<summary>Main Game</summary>
 
 ![Main Game Wireframe](./assets/documentation/index-gamescreen.png)
 
 </details>
+
+<details>
+
+<summary>Form Page</summary>
+
+![Main Page Wireframe](./assets/documentation/index-form.png)
+
+</details>
+<details>
+
+<summary>About Page</summary>
+
+![Main Page Wireframe](./assets/documentation/index-about.png)
 
 </details>
 
