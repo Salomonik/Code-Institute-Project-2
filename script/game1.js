@@ -214,6 +214,7 @@ function updateScore(result) {
 		let leaderboardName = localStorage.getItem('playerName') || 'Anonymous';
 		let date = new Date().toISOString().slice(0, 10); // Format date as YYYY-MM-DD
 
+
 		// Add to leaderboard only if the game has ended
 		addToLeaderBoard({
 			name: leaderboardName,
@@ -365,7 +366,9 @@ function generateLeaderboardHTML() {
 function addToLeaderBoard(entry) {
 	const scores = JSON.parse(localStorage.getItem('leaderboard')) || [];
 	scores.push(entry);
-	scores.splice(0, 1); // Remove the oldest entry to maintain a limit of 10
+	if (scores.length > 10) {
+		scores.splice(0, 1); // Remove the oldest entry to maintain a limit of 10
+	}
 	localStorage.setItem('leaderboard', JSON.stringify(scores)); // Save updated scores back to local storage
 	updateLeaderboardDisplay(); // Refresh the display to show updated leaderboard
 }
