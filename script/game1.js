@@ -137,6 +137,7 @@ function animateItems(result, image1, image2) {
 	}
 
 }
+
 // Function to handle the animation of characters based on the game result
 function animateCharacters(result) {
 	clearMainGame(); //clear the game screen
@@ -144,6 +145,14 @@ function animateCharacters(result) {
 	// Create two new image elements to show the characters
 	const image1 = document.createElement('img');
 	const image2 = document.createElement('img');
+
+	const successChoice = new Audio('./assets/audio/success-choice.mp3')
+	const failChoice = new Audio('./assets/audio/fail-choice.mp3')
+	const drawSound = new Audio('./assets/audio/draw.mp3')
+
+
+
+
 	image1.classList.add('game-image');
 	image2.classList.add('game-image');
 
@@ -159,6 +168,28 @@ function animateCharacters(result) {
 	mainGame.appendChild(image1);
 	mainGame.appendChild(image2);
 
+
+	// Handles sounds in Animate Characters
+	function playSound(result) {
+		const resultValue = result[0];
+		switch (resultValue) {
+			case 'win':
+				successChoice.play();
+				break;
+			case 'lose':
+				failChoice.play();
+				break;
+			case 'draw':
+				drawSound.play();
+				break
+			default:
+				console.log('Unknown Result')
+		}
+	}
+
+	playSound(result);
+
+
 	// If there's a result to display (win, lose, draw), animate the characters accordingly
 	if (result[0] === 'win' || result[0] === 'lose' || result[0] === 'draw') {
 		animateItems(result, image1, image2);
@@ -167,19 +198,22 @@ function animateCharacters(result) {
 			setTimeout(() => {
 				image1.src = './assets/images/game1/player1/cat-winner.webp';
 				image2.src = './assets/images/game1/player1/ai-loser.webp';
-			}, 1000)
+				
+			}, 500)
 		}
 		if (result[0] === 'lose') {
 			setTimeout(() => {
 				image1.src = './assets/images/game1/player1/cat-loser.webp';
 				image2.src = './assets/images/game1/player1/ai-winner.webp';
-			}, 1000)
+				
+			}, 500)
 		}
 		if (result[0] === 'draw') {
 			setTimeout(() => {
 				image1.src = './assets/images/game1/player1/cat-idle.webp';
 				image2.src = './assets/images/game1/player1/ai-idle.webp';
-			}, 1000)
+				
+			}, 500)
 		}
 
 
@@ -249,12 +283,23 @@ function displayEndGameModal(message) {
 
 	const endGameModal = document.querySelector('#endGameModal'); // Upewnij się, że masz taki element w HTML.
 	endGameModal.style.display = 'block';
+
+
 	let modalImage = document.querySelector('#modalImage');
+
+	const successGame = new Audio('./assets/audio/success-game.mp3');
+	const failGame = new Audio('./assets/audio/fail-game.mp3');
 
 	if (message === 'U LOSE') {
 		modalImage.src = './assets/images/game1/player1/ai-prize.webp';
+		setTimeout(() => {
+			failGame.play();
+		}, 1500)
 	} else {
 		modalImage.src = './assets/images/game1/player1/cat-prize.webp';
+		setTimeout(() => {
+			successGame.play();
+		}, 1500)
 	}
 
 
