@@ -375,6 +375,9 @@ The project uses Git for version control, with the repository hosted on GitHub. 
 ### Future Improvements
 
 - **Adding More Games**: Plans are in place to expand the range of games available, which will cater to a wider audience and enhance user engagement.
+- **Multiplayer Mode**: Adding a multiplayer mode to allow users to play against each other.
+- **Enhanced Animations**: Improving game animations to make the experience more engaging.
+- **Advanced Accessibility Features**: Implementing advanced accessibility features, such as screen reader support and high contrast
 
 ### Conclusion
 
