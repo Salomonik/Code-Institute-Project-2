@@ -4,7 +4,6 @@
 
 # Game Central
 
-Welcome to the One Piece Fan Page project! This is a dedicated space to explore and celebrate the captivating world created by Eiichiro Oda in One Piece. Here, you'll find information about the characters, the world, the story, and various media related to this incredible manga and anime.
 
 ## Description
 
@@ -236,7 +235,7 @@ This method is intentional to enhance user experience by not loading all assets 
 
 - Conducted both manual and automated tests covering
 
-### Validator Testing
+### Automated Testing
 
 - HTML
 
@@ -259,16 +258,25 @@ This method is intentional to enhance user experience by not loading all assets 
 
 ### Manual Testing
 
-   - Ensured that game function as expected with no errors during game starts, plays, and ends.
+   -  The testing for Game Central included both automated and manual methods to ensure the application works as intended.
+
+1. **Form Testing**:
+   - The contact form was tested to ensure that all required fields are validated before submission.
+   - The form require both Name and Email to be submited. It runs HTMLSelectElement.checkValidity() to confirm validation before submition.
+   - Example: Attempting to submit the form without entering a name or email to check validation messages.
+
+2. **Link Testing**:
+   - All links were manually tested to ensure they navigate to the correct pages.
+   - Example: Clicking each link on the homepage to verify it redirects to the intended page.
+
+3. **Browser Testing**:
+   - The application was tested on multiple browsers (Chrome, Firefox, Safari, Edge) to ensure compatibility.
+   - Example: Opening the application on different browsers and verifying that all features work correctly.
+
+4. **Responsive Design Testing**:
+   - The responsiveness of the site was tested using Chrome DevTools and various devices (desktop, tablet, mobile).
+   - Example: Checking the layout on different screen sizes to ensure it adapts correctly.
   
-
-### Form Test
-
-- The form require both Name and Email to be submited. It runs HTMLSelectElement.checkValidity() to confirm validation before submition.
-
-### Link Test
-
-- All links tested manually, everything works.
 
 ### Browser Test
 
@@ -281,8 +289,10 @@ This method is intentional to enhance user experience by not loading all assets 
   - [https://ui.dev/amiresponsive](https://ui.dev/amiresponsive?url=https://salomonik.github.io/Code-Institute-Project-2/index.html)
 
 ## Bug Tracking and Fixes
-- **About.html and form.html scroll bar**: Scroll bar was seen during tests in mobile screens which looked odd. Fixed by styling css to remove any scrolling on pages.
-- **Leaderboard Overflow**: The leaderboard would overflow without scrolling on small screens. Fixed by css styling and adding max 10 records in leaderboard for consistency purpose.
+ **Scroll Bar Issue**: Scroll bars were appearing on mobile screens for `about.html` and `form.html`.
+  - **Fix**: Adjusted CSS to remove unnecessary scrolling on these pages.
+- **Leaderboard Overflow**: The leaderboard was overflowing on small screens.
+  - **Fix**: Limited the number of records displayed and adjusted CSS for better handling of overflow.
 
 ## Technologies Used
 
