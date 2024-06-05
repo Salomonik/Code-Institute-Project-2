@@ -422,6 +422,7 @@ setting up flexible column layouts */
 	margin-top: 1rem;
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 
 	background-color: hsla(180, 33%, 96%, 0.6);
 
@@ -433,6 +434,11 @@ setting up flexible column layouts */
 .score>* {
 	text-align: center;
 	flex: 1;
+}
+
+#p1Score,
+#p2Score {
+	font-size: 4rem;
 }
 
 
