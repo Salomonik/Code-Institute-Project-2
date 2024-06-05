@@ -263,9 +263,7 @@ This method is intentional to enhance user experience by not loading all assets 
 1. **Form Testing**:
    - The contact form was tested to ensure that all required fields are validated before submission.
    - The form require both Name and Email to be submited. It runs HTMLSelectElement.checkValidity() to confirm validation before submition.
-   - Example: Attempting to submit the form without entering a name or email to check validation messages.
-    
-    
+   - Example: Attempting to submit the form without entering a name or email to check validation messages.  
 
 2. **Link Testing**:
    - All links were manually tested to ensure they navigate to the correct pages.
@@ -326,6 +324,13 @@ This method is intentional to enhance user experience by not loading all assets 
    ```bash
    git clone https://github.com/Salomonik/Code-Institute-Project-1.git
    ```
+
+### Version Control
+
+The project uses Git for version control, with the repository hosted on GitHub. The development process followed these steps:
+
+1. **Initial Setup**: Created the initial repository and configured the development environment.
+2. **Regular Commits**: Frequent commits were made to document progress and changes, ensuring a detailed history.
 
 ## Reflections
 
