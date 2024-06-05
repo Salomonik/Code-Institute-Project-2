@@ -78,7 +78,7 @@ function populateHTML() {
 function updatePlayerName() {
 	const playerName = localStorage.getItem('playerName');
 	if (playerName) {
-		document.getElementById('playerName').textContent = playerName;
+		document.getElementById('playerName').textContent = playerName.toUpperCase();
 	}
 }
 // Randomly selects a choice for the computer.
