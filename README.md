@@ -72,6 +72,14 @@ Frequent users of Game Central are central to the iterative development process 
 
 This proactive approach to user engagement ensures that frequent visitors not only see Game Central as a fun place to play games but also as a community that values their input and grows with their contributions.
 
+## User Stories
+
+- **As a user**, I want to be able to play a simple game like Rock-Paper-Scissors so that I can have fun during my free time.
+- **As a user**, I want to see my recent performance in the game so that I can track my progress.
+- **As a user**, I want to be able to contact the site owner for support or feedback so that I can have a better experience.
+- **As a parent**, I want to ensure the games are safe and appropriate for my children so that I can feel comfortable letting them play.
+- **As a developer**, I want to keep the code modular and maintainable so that it can be easily updated with new features.
+
 ## Design
 
 ### Typography and Fonts
