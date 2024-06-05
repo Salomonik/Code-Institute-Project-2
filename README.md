@@ -4,7 +4,6 @@
 
 # Game Central
 
-
 ## Description
 
 **Game Central** is an engaging web-based gaming platform tailored specifically for younger audiences. It features a collection of familiar games such as Rock-Paper-Scissors, presented in a vibrant, cartoon-style aesthetic that appeals to children. Developed using HTML, CSS, and JavaScript, this platform is designed to provide a fun and safe environment for kids to enjoy interactive games.
@@ -45,6 +44,20 @@ The content for Game Central consists mainly of visual elements to support the g
   - Phase 2: Applied CSS for styling, with Bootstrap to aid responsive design. The platform was made responsive using CSS Flexbox and Grid, ensuring that it is accessible on a variety of devices, including tablets and smartphones typically used by children.
   - Phase 3: Developed javascript code for interactive elements.
   - Phase 3: Focused on content creation, populating the site with character descriptions, images, and media-related information.
+
+## Requirements
+
+### Functional Requirements
+
+- **Game Functionality**: The game must allow users to select their move and provide immediate feedback on the outcome.
+- **User Profiles**: The application must store the player's name and display it during gameplay.
+- **Leaderboard**: The application must display the last 10 game outcomes in a leaderboard.
+
+### Non-Functional Requirements
+
+- **Responsive Design**: The site must be fully responsive, adapting to different screen sizes and devices.
+- **Accessibility**: The site must be accessible, with proper use of ARIA attributes and keyboard navigation.
+- **Performance**: The site must load quickly and efficiently on all supported devices and browsers.
 
 ## User Experience
 
@@ -251,14 +264,13 @@ This method is intentional to enhance user experience by not loading all assets 
     - [validator.w3.org results](https://validator.w3.org/nu/?doc=https%3A%2F%2Fsalomonik.github.io%2FCode-Institute-Project-2%2F)
 
 - CSS
+
   - No errors were returned when passing through the official W3C Markup Validator by direct input.<br>
     - [jigsaw.w3.org results](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fsalomonik.github.io%2FCode-Institute-Project-2%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)<br>
       ![css-validated](./assets/documentation/w3c-validator.png)
 
 - JS
-	- No errors returned when passing via https://jshint.com/.<br>
-	-![js-validated](./assets/documentation/jshintValidator-game1.png)<br>
-	-![js-validated](./assets/documentation/jshintValidator.png)
+  - No errors returned when passing via https://jshint.com/.<br> -![js-validated](./assets/documentation/jshintValidator-game1.png)<br> -![js-validated](./assets/documentation/jshintValidator.png)
 
 ### Lighthouse Test
 
@@ -266,25 +278,27 @@ This method is intentional to enhance user experience by not loading all assets 
 
 ### Manual Testing
 
-   -  The testing for Game Central included both automated and manual methods to ensure the application works as intended.
+- The testing for Game Central included both automated and manual methods to ensure the application works as intended.
 
 1. **Form Testing**:
+
    - The contact form was tested to ensure that all required fields are validated before submission.
    - The form require both Name and Email to be submited. It runs HTMLSelectElement.checkValidity() to confirm validation before submition.
-   - Example: Attempting to submit the form without entering a name or email to check validation messages.  
+   - Example: Attempting to submit the form without entering a name or email to check validation messages.
 
 2. **Link Testing**:
+
    - All links were manually tested to ensure they navigate to the correct pages.
    - Example: Clicking each link on the homepage to verify it redirects to the intended page.
 
 3. **Browser Testing**:
+
    - The application was tested on multiple browsers (Chrome, Firefox, Safari, Edge) to ensure compatibility.
    - Example: Opening the application on different browsers and verifying that all features work correctly.
 
 4. **Responsive Design Testing**:
    - The responsiveness of the site was tested using Chrome DevTools and various devices (desktop, tablet, mobile).
    - Example: Checking the layout on different screen sizes to ensure it adapts correctly.
-  
 
 ### Browser Test
 
@@ -297,8 +311,10 @@ This method is intentional to enhance user experience by not loading all assets 
   - [https://ui.dev/amiresponsive](https://ui.dev/amiresponsive?url=https://salomonik.github.io/Code-Institute-Project-2/index.html)
 
 ## Bug Tracking and Fixes
- **Scroll Bar Issue**: Scroll bars were appearing on mobile screens for `about.html` and `form.html`.
-  - **Fix**: Adjusted CSS to remove unnecessary scrolling on these pages.
+
+**Scroll Bar Issue**: Scroll bars were appearing on mobile screens for `about.html` and `form.html`.
+
+- **Fix**: Adjusted CSS to remove unnecessary scrolling on these pages.
 - **Leaderboard Overflow**: The leaderboard was overflowing on small screens.
   - **Fix**: Limited the number of records displayed and adjusted CSS for better handling of overflow.
 
@@ -363,7 +379,6 @@ The project uses Git for version control, with the repository hosted on GitHub. 
 ### Conclusion
 
 Reflecting on this project, I appreciate the valuable insights gained and the growth in my technical capabilities. I look forward to applying these lessons to future projects.
-
 
 ## Acknowledgments
 
