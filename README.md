@@ -50,33 +50,36 @@ The content for Game Central consists mainly of visual elements to support the g
 ### Functional Requirements
 
 - **Game Functionality**: The game must allow users to select their move and provide immediate feedback on the outcome.
-   - The application must allow users to play Rock-Paper-Scissors.
-   - The game must provide immediate feedback on the outcome of each round.
-   - The game must display animations corresponding to the result (win, lose, draw).
+  - The application must allow users to play Rock-Paper-Scissors.
+  - The game must provide immediate feedback on the outcome of each round.
+  - The game must display animations corresponding to the result (win, lose, draw).
 - **User Profiles**: The application must store the player's name and display it during gameplay.
 - **Leaderboard**: The application must display the last 10 game outcomes in a leaderboard.
 - **Feedback Mechanism**:
-   - The application must include a contact form for users to submit feedback or ask questions.
-   - The form must validate required fields (name, email) before submission.
+  - The application must include a contact form for users to submit feedback or ask questions.
+  - The form must validate required fields (name, email) before submission.
 - **Accessibility**:
-   - ARIA labels must be used to improve screen reader compatibility.
+  - ARIA labels must be used to improve screen reader compatibility.
 
 ### Non-Functional Requirements
 
 - **Responsive Design**: The site must be fully responsive, adapting to different screen sizes and devices.
 - **Performance**: The site must load quickly and efficiently on all supported devices and browsers.
 - **Security**:
-   - User data (names and scores) must be stored securely, with no personal information exposed.
+
+  - User data (names and scores) must be stored securely, with no personal information exposed.
 
 - **Usability**:
-   - The interface should be intuitive and easy to navigate, with minimal learning curve.
+  - The interface should be intuitive and easy to navigate, with minimal learning curve.
 
 ### Out of Scope
+
 - **Multiplayer Functionality**:
-   - The current project does not include real-time multiplayer capabilities.
+
+  - The current project does not include real-time multiplayer capabilities.
 
 - **Advanced Game Types**:
-   - Only the Rock-Paper-Scissors game is implemented, other game types are planned for future updates.
+  - Only the Rock-Paper-Scissors game is implemented, other game types are planned for future updates.
 
 ## User Experience
 
@@ -318,6 +321,27 @@ This method is intentional to enhance user experience by not loading all assets 
 4. **Responsive Design Testing**:
    - The responsiveness of the site was tested using Chrome DevTools and various devices (desktop, tablet, mobile).
    - Example: Checking the layout on different screen sizes to ensure it adapts correctly.
+
+### Unit Testing
+
+**Test Case**: Validate game logic for determining the winner.  
+**Input**: Player chooses 'rock', AI chooses 'scissors'.  
+**Expected Output**: Player wins.  
+**Result**: Passed.
+
+### Integration Testing
+
+**Test Case**: Ensure leaderboard updates correctly after each game.  
+**Input**: Play 10 games and check leaderboard.  
+**Expected Output**: Leaderboard displays the last 10 game outcomes.  
+**Result**: Passed.
+
+### Usability Testing
+
+**Test Case**: Verify ease of navigation and gameplay for first-time users.  
+**Input**: New user navigates through the site and plays the game.  
+**Expected Output**: User finds the site intuitive and can play without assistance.  
+**Result**: Passed.
 
 ### Browser Test
 
