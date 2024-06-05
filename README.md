@@ -264,6 +264,8 @@ This method is intentional to enhance user experience by not loading all assets 
    - The contact form was tested to ensure that all required fields are validated before submission.
    - The form require both Name and Email to be submited. It runs HTMLSelectElement.checkValidity() to confirm validation before submition.
    - Example: Attempting to submit the form without entering a name or email to check validation messages.
+    
+    
 
 2. **Link Testing**:
    - All links were manually tested to ensure they navigate to the correct pages.
